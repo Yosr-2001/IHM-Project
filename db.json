@@ -1,0 +1,416 @@
+{
+  "composantsHotel": [
+    {
+      "id": "1",
+      "nom": "Spa",
+      "image": "spa.jpg"
+    },
+    {
+      "id": "2",
+      "nom": "Salle de sport",
+      "image": "gym.jpg"
+    },
+    {
+      "id": "3",
+      "nom": "Piscine",
+      "image": "pis.jpg"
+    },
+    {
+      "id": "4",
+      "nom": "Restaurant",
+      "image": "restaurant.jpg"
+    },
+    {
+      "id": "5",
+      "nom": "Bar",
+      "image": "bar.jpg"
+    }
+  ],
+  "hotels": [
+    {
+      "id": "1",
+      "nom": "Hôtel Paradis",
+      "description": "Un havre de paix avec vue sur la mer Méditerranée.",
+      "region": "Côte d'Azur",
+      "pays": "France",
+      "adresse": "123 Rue de la Plage, Nice",
+      "note": 4.8,
+      "image": "https://images.unsplash.com/photo-1566073771259-6a8506099945?crop=entropy&cs=tinysrgb&fit=max&ixid=MnwzNjU1OXwwfDF8c2VhcmNofDJ8fG9jZWFuJTIwYXNfY2FsaWZvcm5pYXxlbnwwfDB8fHwxNjg2MjQ4Mjcz&ixlib=rb-1.2.1&q=80&w=1080",
+      "nbre_chambre": 12,
+      "nbre_piscine": 2,
+      "prix_moyen": 220,
+      "composantsHotelId": [
+        1,
+        2,
+        3
+      ],
+      "avis": [
+        {
+          "note": 5,
+          "commentaire": "Excellent séjour, vue magnifique!"
+        },
+        {
+          "note": 4,
+          "commentaire": "Très bel hôtel, service impeccable."
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "nom": "Hôtel Bellevue",
+      "description": "Un hôtel de luxe avec une vue imprenable sur les Alpes.",
+      "region": "Savoie",
+      "pays": "France",
+      "adresse": "56 Rue du Mont-Blanc, Chamonix",
+      "note": 4.7,
+      "image": "https://th.bing.com/th/id/R.25204d0d08c60d4c090c3ac1f7427bdc?rik=mvSPu1VIYL48qw&pid=ImgRaw&r=0",
+      "nbre_chambre": 25,
+      "nbre_piscine": 1,
+      "prix_moyen": 350,
+      "composantsHotelId": [
+        1,
+        3,
+        4,
+        5
+      ],
+      "offres": [
+        {
+          "nom": "Promo d'hiver",
+          "description": "25% de réduction pour les réservations hivernales",
+          "date_debut": "2024-12-01",
+          "date_fin": "2025-03-31",
+          "reduction": 0.25
+        }
+      ],
+      "avis": [
+        {
+          "note": 5,
+          "commentaire": "Séjour parfait, paysage splendide !"
+        },
+        {
+          "note": 4,
+          "commentaire": "Hôtel charmant, mais un peu cher."
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "nom": "Hôtel Le Jardin d'Or",
+      "description": "Un cadre naturel, entouré de jardins luxuriants et de sentiers de randonnée.",
+      "region": "Provence",
+      "pays": "France",
+      "adresse": "27 Rue des Lavandes, Aix-en-Provence",
+      "note": 4.5,
+      "image": "https://th.bing.com/th/id/R.c87d373958d47db92b01d8e2f0e55c37?rik=eU3WrLMxCZ2R9Q&riu=http%3a%2f%2fprojets.cotemaison.fr%2fuploads%2fprojects%2f2026%2fproject_222514_pic_1.jpg&ehk=MKAyjfjq8nfuHWLRbX6abZ8UYPIuviuVEHoPOOgsDCI%3d&risl=&pid=ImgRaw&r=0",
+      "nbre_chambre": 20,
+      "nbre_piscine": 1,
+      "prix_moyen": 180,
+      "composantsHotelId": [
+        1,
+        4
+      ],
+      "offres": [
+        {
+          "nom": "Offre spéciale printemps",
+          "description": "15% de réduction pour un séjour de 3 nuits",
+          "date_debut": "2024-03-01",
+          "date_fin": "2024-05-31",
+          "reduction": 0.15
+        }
+      ],
+      "avis": [
+        {
+          "note": 5,
+          "commentaire": "Très bon séjour, cadre idyllique."
+        },
+        {
+          "note": 4,
+          "commentaire": "Hôtel agréable, mais les chambres pourraient être plus modernes."
+        }
+      ]
+    },
+    {
+      "id": "4",
+      "nom": "Hôtel Montagne Magique",
+      "description": "Idéalement situé au pied des montagnes, parfait pour les amateurs de ski et de randonnées.",
+      "region": "Alpes",
+      "pays": "Suisse",
+      "adresse": "42 Rue des Neiges, Zermatt",
+      "note": 4.9,
+      "image": "https://th.bing.com/th/id/R.42a1613e8ac6a3631f48f244a550185e?rik=gZxdE4BfC9JvaQ&pid=ImgRaw&r=0",
+      "nbre_chambre": 30,
+      "nbre_piscine": 2,
+      "prix_moyen": 400,
+      "composantsHotelId": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "offres": [
+        {
+          "nom": "Offre de Noël",
+          "description": "30% de réduction pour les séjours de Noël",
+          "date_debut": "2024-12-20",
+          "date_fin": "2024-12-31",
+          "reduction": 0.3
+        }
+      ],
+      "avis": [
+        {
+          "note": 5,
+          "commentaire": "Un cadre magnifique, un service impeccable."
+        },
+        {
+          "note": 4,
+          "commentaire": "L'hôtel est très bien situé, mais les prix sont élevés."
+        }
+      ]
+    },
+    {
+      "id": "5",
+      "nom": "Hôtel Soleil Levant",
+      "description": "Un hôtel tout confort avec des vues spectaculaires sur l'océan Pacifique.",
+      "region": "Okinawa",
+      "pays": "Japon",
+      "adresse": "123 Rue de la Plage, Naha",
+      "note": 4.6,
+      "image": "https://th.bing.com/th/id/R.1fa81e01280a1b77171fce0b8db259e7?rik=EzzKveFAVNYi0w&pid=ImgRaw&r=0",
+      "nbre_chambre": 18,
+      "nbre_piscine": 2,
+      "prix_moyen": 280,
+      "composantsHotelId": [
+        1,
+        3,
+        4,
+        5
+      ],
+      "offres": [
+        {
+          "nom": "Offre d'été",
+          "description": "20% de réduction pour une réservation de 4 nuits",
+          "date_debut": "2024-06-01",
+          "date_fin": "2024-08-31",
+          "reduction": 0.2
+        }
+      ],
+      "avis": [
+        {
+          "note": 5,
+          "commentaire": "Vue incroyable et service très attentionné."
+        },
+        {
+          "note": 4,
+          "commentaire": "Super séjour, mais le prix est un peu élevé pour la taille des chambres."
+        }
+      ]
+    }
+  ],
+  "evenements": [
+    {
+      "id": "2",
+      "nom": "Atelier Cuisine Française",
+      "description": "Apprenez à préparer des plats traditionnels avec notre chef étoilé Michel.",
+      "date": "2024-08-05",
+      "heure": "10:00",
+      "prix": 80,
+      "idHotel": 2,
+      "imageUrl": "https://images.unsplash.com/photo-1606787366850-de6330128bfc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+    },
+    {
+      "id": "3",
+      "nom": "Yoga au Lever du Soleil",
+      "description": "Séance de yoga matinale face à la mer avec notre instructeur certifié.",
+      "date": "2024-06-22",
+      "heure": "06:30",
+      "prix": 15,
+      "idHotel": 3,
+      "imageUrl": "https://images.unsplash.com/photo-1545389336-cf090694435e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1528&q=80"
+    },
+    {
+      "id": "4",
+      "nom": "Dégustation de Vins",
+      "description": "Exploration des grands crus de Provence accompagnés de fromages locaux.",
+      "date": "2024-09-14",
+      "heure": "18:30",
+      "prix": 35,
+      "idHotel": 1,
+      "imageUrl": "https://images.unsplash.com/photo-1558160074-4d7d8bdf4256?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+    },
+    {
+      "id": "5",
+      "nom": "Soirée Jeux de Société",
+      "description": "Venez passer une soirée conviviale autour de jeux classiques et modernes.",
+      "date": "2024-07-29",
+      "heure": "19:00",
+      "idHotel": 2,
+      "prix": 15,
+      "imageUrl": "https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+    },
+    {
+      "id": "6",
+      "nom": "Brunch Dominical",
+      "description": "Notre célèbre brunch avec produits frais et locaux, en terrasse panoramique.",
+      "date": "2024-08-11",
+      "heure": "11:00",
+      "prix": 28,
+      "idHotel": 3,
+      "imageUrl": "https://images.unsplash.com/photo-1551218808-94e220e084d2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80"
+    }
+  ],
+  "offres": [
+    {
+      "id": "1",
+      "nom": "Early Bird",
+      "description": "Réservez 3 mois à l'avance et bénéficiez de 20% de réduction",
+      "date_debut": "2025-01-01",
+      "date_fin": "2025-12-31",
+      "reduction": 0.2,
+      "hotelId": 1
+    },
+    {
+      "id": "2",
+      "nom": "Séjour Famille",
+      "description": "Chambre familiale avec activités pour enfants incluses",
+      "date_debut": "2025-01-01",
+      "date_fin": "2025-12-31",
+      "reduction": 0.15,
+      "hotelId": 1
+    },
+    {
+      "id": "3",
+      "nom": "Pack Affaires",
+      "description": "Hébergement + accès salle de réunion + petit-déjeuner",
+      "date_debut": "2025-01-01",
+      "date_fin": "2025-12-31",
+      "reduction": 0.1,
+      "hotelId": 2
+    },
+    {
+      "id": "4",
+      "nom": "Séjour Détente",
+      "description": "2 nuits avec accès spa et soins bien-être",
+      "date_debut": "2025-01-01",
+      "date_fin": "2025-12-31",
+      "reduction": 0.12,
+      "hotelId": 2
+    },
+    {
+      "id": "5",
+      "nom": "Offre Groupe",
+      "description": "Réduction de 25% pour les réservations de plus de 5 chambres",
+      "date_debut": "2025-01-01",
+      "date_fin": "2025-12-31",
+      "reduction": 0.25,
+      "hotelId": 3
+    },
+    {
+      "id": "6",
+      "nom": "Séjour Longue Durée",
+      "description": "Réduction progressive à partir de 7 nuits consécutives",
+      "date_debut": "2025-01-01",
+      "date_fin": "2025-12-31",
+      "reduction": 0.18,
+      "hotelId": 3
+    },
+    {
+      "id": "7",
+      "nom": "Pack Découverte",
+      "description": "Hébergement + visite guidée de la ville",
+      "date_debut": "2025-01-01",
+      "date_fin": "2025-12-31",
+      "reduction": 0.15,
+      "hotelId": 4
+    },
+    {
+      "id": "8",
+      "nom": "Offre Sénior",
+      "description": "Réduction spéciale pour les 60 ans et plus",
+      "date_debut": "2025-01-01",
+      "date_fin": "2025-12-31",
+      "reduction": 0.1,
+      "hotelId": 4
+    },
+    {
+      "id": "9",
+      "nom": "Séjour Sportif",
+      "description": "Accès illimité au centre de fitness et piscine",
+      "date_debut": "2025-01-01",
+      "date_fin": "2025-12-31",
+      "reduction": 0.15,
+      "hotelId": 5
+    },
+    {
+      "id": "10",
+      "nom": "Pack Étudiant",
+      "description": "Tarif spécial sur présentation de la carte étudiante",
+      "date_debut": "2025-01-01",
+      "date_fin": "2025-12-31",
+      "reduction": 0.2,
+      "hotelId": 5
+    }
+  ],
+  "reservations": [
+    {
+      "id": "3cad",
+      "offreId": "",
+      "client": {
+        "nom": "said",
+        "email": "sa@gmail.com",
+        "telephone": "zz"
+      },
+      "details": {
+        "dateArrivee": "2025-04-18",
+        "dateDepart": "2025-04-23",
+        "nombrePersonnes": 1
+      },
+      "statut": "en_attente"
+    },
+    {
+      "id": "835a",
+      "offreId": "",
+      "client": {
+        "nom": "said",
+        "email": "sa@gmail.com",
+        "telephone": "123456"
+      },
+      "details": {
+        "dateArrivee": "2025-04-10",
+        "dateDepart": "2025-04-17",
+        "nombrePersonnes": 1
+      },
+      "statut": "en_attente"
+    },
+    {
+      "id": "6e2b",
+      "offreId": "",
+      "client": {
+        "nom": "s",
+        "email": "s",
+        "telephone": "1"
+      },
+      "details": {
+        "dateArrivee": "2025-04-10",
+        "dateDepart": "2025-04-12",
+        "nombrePersonnes": 1
+      },
+      "statut": "en_attente"
+    },
+    {
+      "id": "4acd",
+      "offreId": "",
+      "client": {
+        "nom": "ben amar yosr",
+        "email": "benamar.yosr@iit.ens.tn",
+        "telephone": "96323959"
+      },
+      "details": {
+        "dateArrivee": "2025-04-10",
+        "dateDepart": "2025-04-18",
+        "nombrePersonnes": 4
+      },
+      "statut": "en_attente"
+    }
+  ]
+}

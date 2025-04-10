@@ -1,0 +1,60 @@
+ 
+<form (ngSubmit)="submitReservation()" #reservationForm="ngForm">
+  <div class="form-group">
+    <label for="nom">Nom</label>
+    <div class="input-container">
+      <input type="text" id="nom" name="nom" [(ngModel)]="reservation.client.nom" required>
+      <i class="fa fa-user icon"></i> 
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="email">Email</label>
+    <div class="input-container">
+      <input type="email" id="email" name="email" [(ngModel)]="reservation.client.email" required>
+      <i class="fa fa-envelope icon"></i>  
+    </div>
+  </div>
+
+ 
+
+  <div class="form-group">
+    <label for="dateArrivee">Date d'arrivée</label>
+    <div class="input-container">
+      <input type="date" id="dateArrivee" name="dateArrivee" [(ngModel)]="reservation.details.dateArrivee" required>
+      <i class="fa fa-calendar icon"></i>  
+    </div>
+  </div>
+  
+
+  <div class="form-group">
+    <label for="dateDepart">Date de départ</label>
+    <div class="input-container">
+      <input type="date" id="dateDepart" name="dateDepart" [(ngModel)]="reservation.details.dateDepart" required>
+      <i class="fa fa-calendar icon"></i> 
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="telephone">Téléphone</label>
+    <div class="input-container">
+      <input type="tel" id="telephone" name="telephone" [(ngModel)]="reservation.client.telephone" required>
+      <i class="fa fa-phone icon"></i>  
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="nombrePersonnes">Nombre de personnes</label>
+    <div class="input-container">
+      <input type="number" id="nombrePersonnes" name="nombrePersonnes" [(ngModel)]="reservation.details.nombrePersonnes" required>
+      <i class="fa fa-users icon"></i> 
+    </div>
+  </div>
+
+  <div class="button-container">
+    <button type="submit" [disabled]="!reservationForm.valid" class="reservation-btn">
+      Valider        <span class="material-icons">check_circle</span>
+
+    </button>
+  </div>
+  </form>

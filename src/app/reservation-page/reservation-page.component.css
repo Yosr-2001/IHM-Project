@@ -1,0 +1,203 @@
+.mat-snack-bar-container {
+  position: fixed !important;  /* Fixer en position absolue */
+  top: 0 !important;  /* Placer en haut */
+  left: 50% !important;
+  transform: translateX(-50%);  /* Centrer horizontalement */
+  z-index: 9999;  /* Assurez-vous qu'il est bien au-dessus d'autres éléments */
+}
+
+/* Style personnalisé du snackbar succès */
+.snackbar-success {
+  background-color: #4CAF50;
+  color: white;
+  font-weight: bold;
+  border-radius: 8px;
+  padding: 12px 24px;
+  text-align: center;
+  font-size: 1rem;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  text-transform: uppercase;
+}
+.mat-snack-bar-container {
+  z-index: 10000 !important;  /* Assurez-vous qu'il reste au-dessus de tout */
+  top: 0 !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+}
+
+
+ .snackbar-error {
+  background-color: #f44336;
+  color: white;
+  font-weight: bold;
+  border-radius: 8px;
+  padding: 12px 24px;
+  text-align: center;
+  font-size: 1rem;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  text-transform: uppercase;
+}form {
+  max-width: 800px;
+  margin: 4rem auto;
+  background-color: #ffffff;
+  padding: 1.25rem;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Deux colonnes égales */
+  gap: 1rem;
+}
+
+/* Titre du formulaire */
+form h3 {
+  color: #2b2d42;
+  font-size: 1.8rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Groupes de formulaire */
+.form-group {
+  margin-bottom: 1.2rem;
+}
+
+/* Label */
+label {
+  font-weight: 600;
+  font-size: 1rem;
+  color: #2d3748;
+  margin-bottom: 0.3rem;
+  display: block;
+}
+
+/* Conteneur des champs d'entrée */
+.input-container {
+  position: relative;
+}
+
+/* Champs de saisie */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="date"],
+input[type="number"] {
+  width: 100%;
+  padding: 1rem 1.5rem 1rem 2.5rem; /* Ajout de padding à gauche pour l'icône */
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  background-color: #f9fafb;
+}
+
+/* Icônes */
+.icon {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.2rem;
+  color: #5D93E1;
+}
+
+/* Focus des champs de saisie */
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus,
+input[type="date"]:focus,
+input[type="number"]:focus {
+  outline: none;
+  border-color: #5D93E1;
+  box-shadow: 0 0 8px rgba(93, 147, 225, 0.2);
+  background-color: #fff;
+}
+
+/* Conteneur des boutons */
+.button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 2rem;   
+  grid-column: span 2; 
+  transition: all 0.3s ease;
+   
+}
+
+/* Style générique pour les boutons */
+.reservation-btn {
+  background-color: #5D93E1;
+  color: white;
+  border-radius: 28px;
+  padding: 10px 40px;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(242, 240, 240, 0.4);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+  width: 80%; /* Le bouton occupe 80% de la largeur */
+  text-align: center;
+  border: none;
+  cursor: pointer;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+
+.reservation-btn .material-icons {
+  margin-left: 10px; /* Espacement entre l'icône et le texte */
+  font-size: 1.3rem; /* Taille de l'icône */
+}
+
+/* Effet au survol (hover) */
+.reservation-btn:hover {
+  background-color: #3164aa;
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 8px 20px rgba(255, 255, 255, 0.6);
+}
+
+/* Effet lorsqu'un bouton est activé (click) */
+.reservation-btn:active {
+  transform: translateY(1px) scale(0.98);
+  box-shadow: 0 2px 6px rgba(255, 107, 53, 0.5);
+}
+
+/* Désactivation du bouton */
+.reservation-btn:disabled {
+  background-color: #B0BEC5;
+  cursor: not-allowed;
+  color: #2b2d42;
+  box-shadow: none;
+}
+
+
+ 
+/* Pour les écrans mobiles */
+@media (max-width: 768px) {
+  form {
+    padding: 1.2rem;
+  }
+
+  .form-group {
+    margin-bottom: 1rem;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="date"],
+  input[type="number"] {
+    padding: 0.8rem;
+  }
+
+  .reservation-btn {
+    width: 100%; /* Le bouton prend 100% de la largeur sur mobile */
+  }
+}

@@ -1,0 +1,94 @@
+<div class="offres-container">
+    <h3 class="offres-title">
+        <mat-icon>local_offer</mat-icon>
+        Nos offres spéciales
+    </h3>
+
+
+    <div *ngIf="error" class="error-message">
+        {{ error }}
+    </div>
+
+    <div *ngIf="!loading && offres.length === 0" class="no-offres">
+        Aucune offre disponible pour cet hôtel actuellement
+    </div>
+
+    <div class="offres-grid" *ngIf="!loading && offres.length > 0">
+        <div *ngFor="let offre of offres" class="offre-card">
+            <div class="offre-header">
+                <h4 class="offre-title">{{ offre.nom }}</h4>
+                <span class="discount-badge">
+                    <mat-icon>local_offer</mat-icon>
+                    -{{ offre.reduction * 100 }}%
+                </span>
+            </div>
+
+            <p class="offre-description">{{ offre.description }}</p>
+
+            <div class="offre-details">
+                <div class="detail-item">
+                    <mat-icon class="calendar-icon">calendar_today</mat-icon>
+                    <span>Du {{ offre.date_debut | date }} au {{ offre.date_fin | date }}</span>
+                </div>
+
+                <div class="detail-item">
+                    <mat-icon class="offer-icon">percent</mat-icon>
+                    <span>Réduction: {{ offre.reduction * 100 }}%</span>
+                </div>
+
+            </div>
+
+            <div class="offre-actions">
+                <button mat-raised-button class="reservation-btn" [routerLink]="['/reservation', offre.id]">
+                    Réserver maintenant <mat-icon>done</mat-icon>
+                </button>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div class="offre-card none-option" [class.selected]="selectedOffer === 'none'" (click)="selectOffer('none')">
+    <div class="offre-header">
+        <h4 class="offre-title">
+            <mat-icon>sentiment_dissatisfied</mat-icon>
+            Aucune offre ne me convient
+        </h4>
+    </div>
+    <p class="offre-description">Nous sommes désolés. Cliquez ici pour voir les alternatives.</p>
+</div>
+
+
+
+
+<div *ngIf="selectedOffer === 'none'" class="alternative-solutions">
+    <h4><mat-icon>support_agent</mat-icon> Solutions alternatives :</h4>
+
+    <div class="solution-options">
+        <div class="solution-card" (click)="callSupport()">
+            <mat-icon class="solution-icon">call</mat-icon>
+            <div class="solution-content">
+                <h5>Appel immédiat</h5>
+                <p>Parlez directement à notre conseiller</p>
+                <div class="phone-number">+216 12 345 678</div>
+            </div>
+        </div>
+
+        <div class="solution-card" (click)="openContactForm()">
+            <mat-icon class="solution-icon">email</mat-icon>
+            <div class="solution-content">
+                <h5>Demande personnalisée</h5>
+                <p>Nous vous contacterons sous 24h</p>
+                <div class="action-text">Remplir le formulaire</div>
+            </div>
+        </div>
+
+        <div class="solution-card" (click)="startLiveChat()">
+            <mat-icon class="solution-icon">chat</mat-icon>
+            <div class="solution-content">
+                <h5>Chat en direct</h5>
+                <p>Disponible de 8h à 20h</p>
+                <div class="action-text">Démarrer la discussion</div>
+            </div>
+        </div>
+    </div>
+</div>

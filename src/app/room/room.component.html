@@ -1,0 +1,82 @@
+<div class="search-container">
+    <div class="search-card">
+      <h2 class="search-title">Trouvez votre hébergement idéal</h2>
+  
+      <div class="search-fields">
+        <!-- Destination -->
+        <mat-form-field appearance="outline" class="search-field full-width">
+          <mat-label>Destination</mat-label>
+          <mat-icon matPrefix>location_on</mat-icon>
+          <input matInput placeholder="Paris, Côte d'Azur, Hôtel Luxe..." [(ngModel)]="destination">
+        </mat-form-field>
+  
+        <!-- Dates -->
+        <div class="date-range">
+          <mat-form-field appearance="outline" class="search-field">
+            <mat-label>Arrivée</mat-label>
+            <mat-icon matPrefix>calendar_today</mat-icon>
+            <input matInput [matDatepicker]="arrivalPicker" [(ngModel)]="arrivalDate">
+            <mat-datepicker-toggle matSuffix [for]="arrivalPicker"></mat-datepicker-toggle>
+            <mat-datepicker #arrivalPicker></mat-datepicker>
+          </mat-form-field>
+  
+          <mat-form-field appearance="outline" class="search-field">
+            <mat-label>Départ</mat-label>
+            <mat-icon matPrefix>calendar_today</mat-icon>
+            <input matInput [matDatepicker]="departurePicker" [(ngModel)]="departureDate">
+            <mat-datepicker-toggle matSuffix [for]="departurePicker"></mat-datepicker-toggle>
+            <mat-datepicker #departurePicker></mat-datepicker>
+          </mat-form-field>
+        </div>
+  
+        <!-- Voyageurs -->
+        <mat-form-field appearance="outline" class="search-field">
+          <mat-label>Voyageurs</mat-label>
+          <mat-icon matPrefix>people</mat-icon>
+          <mat-select [(ngModel)]="travelers">
+            <mat-option *ngFor="let option of travelerOptions" [value]="option.value">
+              {{ option.label }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+  
+        <!-- Gamme de prix -->
+        <mat-form-field appearance="outline" class="search-field">
+          <mat-label>Prix max (€)</mat-label>
+          <mat-icon matPrefix>euro</mat-icon>
+          <input matInput type="number" min="0" [(ngModel)]="maxPrice">
+        </mat-form-field>
+  
+        <!-- Catégorie -->
+        <mat-form-field appearance="outline" class="search-field">
+          <mat-label>Catégorie</mat-label>
+          <mat-icon matPrefix>star</mat-icon>
+          <mat-select [(ngModel)]="category">
+            <mat-option value="1">1 étoile</mat-option>
+            <mat-option value="2">2 étoiles</mat-option>
+            <mat-option value="3">3 étoiles</mat-option>
+            <mat-option value="4">4 étoiles</mat-option>
+            <mat-option value="5">5 étoiles</mat-option>
+          </mat-select>
+        </mat-form-field>
+  
+        <!-- Équipements -->
+        <mat-form-field appearance="outline" class="search-field full-width">
+          <mat-label>Équipements</mat-label>
+          <mat-icon matPrefix>fitness_center</mat-icon>
+          <mat-select multiple [(ngModel)]="equipments">
+            <mat-option *ngFor="let equip of equipmentOptions" [value]="equip">
+              {{ equip }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+  
+      <!-- Bouton de recherche -->
+      <button mat-raised-button color="primary" class="search-button" (click)="search()">
+        <mat-icon>search</mat-icon>
+        <span>Rechercher</span>
+      </button>
+    </div>
+  </div>
+  

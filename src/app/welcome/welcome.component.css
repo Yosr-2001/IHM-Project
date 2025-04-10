@@ -1,0 +1,214 @@
+/* Variables harmonisées avec votre navbar */
+:root {
+    --primary-color: #5D93E1;
+    --primary-light: rgba(8, 156, 148, 0.1);
+    --text-dark: #2d3436;
+    --text-medium: #636e72;
+    --text-light: #f8f9fa;
+    --shadow-light: 0 2px 4px rgba(0,0,0,0.1);
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+   
+.hero-section {
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  color: var(--text-light);
+  overflow: hidden; 
+}
+
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+      linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+      url("https://th.bing.com/th/id/OIP.8Kp3mm9Zg64kTNQ0bPRXKwAAAA?w=474&h=316&rs=1&pid=ImgDetMain") no-repeat center/cover;
+  filter: blur(5px); 
+  z-index: 0;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;  
+  text-align: center;
+  width: 100%;
+  padding: 0 2rem;
+}
+  .logo-container {
+    display: inline-flex;
+    align-items: center;
+    margin-bottom: 2rem;
+     padding: 1rem 2rem;
+    border-radius: 50px;
+    box-shadow: var(--shadow-light);
+    
+    .logo-icon ,.logo-text {
+      font-size: 3.5rem;
+      font-weight: 700;
+      color: rgba(246, 191, 191, 0.819);
+      opacity: 0.8;
+    }    
+     
+  }
+  
+  .hero-subtitle { 
+    font-weight: 300;
+    font-size: 1.5rem;
+    word-spacing: 2px;
+    letter-spacing: 1px;
+    margin-bottom: 3rem;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    font-weight: 500;
+    color: whitesmoke;
+  }
+  
+  .search-container {
+    .explore-btn {
+         background-color: #5D93E1;  
+        color: white; 
+        border-radius: 28px;
+        padding: 8px 40px;
+         
+        font-size: 1rem;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        text-shadow: 0 1px 1px rgba(0,0,0,0.1);
+        
+         box-shadow: 0 4px 12px rgba(242, 240, 240, 0.4); 
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+         
+        &:hover {
+            background-color: #3164aa; 
+            transform: translateY(-3px) scale(1.03);
+            box-shadow: 0 8px 20px rgba(255, 255, 255, 0.6);
+            
+            mat-icon {
+                transform: translateX(6px);
+                animation: pulseArrow 0.5s ease;
+            }
+        }
+        
+        &:active {
+            transform: translateY(1px) scale(0.98);
+            box-shadow: 0 2px 6px rgba(255, 107, 53, 0.5);
+        }
+        
+        mat-icon {
+            transition: transform 0.3s ease;
+            filter: drop-shadow(0 1px 1px rgba(0,0,0,0.2));
+        }
+    }
+}
+
+@keyframes pulseArrow {
+    0% { transform: translateX(0); }
+    50% { transform: translateX(8px); }
+    100% { transform: translateX(6px); }
+}
+ 
+  .features-section {
+    padding: 4rem 2rem;
+    background: var(--text-light);
+  }
+  
+  .section-title {
+    text-align: center;
+    color: var(--text-dark);
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.8rem;
+    margin-bottom: 3rem;
+    position: relative;
+    
+    &::after {
+      content: '';
+      display: block;
+      width: 80px;
+      height: 3px;
+      background: var(--primary-color);
+      margin: 1rem auto 0;
+      opacity: 0.5;
+    }
+  }
+  
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .feature-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: var(--shadow-light);
+    transition: var(--transition);
+    
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    }
+    
+    .feature-icon {
+      font-size: 2.5rem;
+      color: var(--primary-color);
+      margin-bottom: 1rem;
+    }
+    
+    h4 {
+      color: var(--text-dark);
+      font-family: 'Roboto', sans-serif;
+      margin-bottom: 0.5rem;
+    }
+    
+    p {
+      color: var(--text-medium);
+      font-size: 0.9rem;
+    }
+  }
+   
+  @media (max-width: 768px) {
+    .search-container {
+      flex-direction: column;
+      
+
+
+      .explore-btn {
+        padding: 2rem 2rem;
+        font-size: 1rem;
+        font-weight: 400;
+    
+        
+        background-color: #5D93E1;
+        color: white;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);  
+        .mat-icon {
+            color: white;
+          } }
+       
+    }
+    
+    .hero-subtitle {
+      font-size: 1.2rem;
+    }
+   
+  }
