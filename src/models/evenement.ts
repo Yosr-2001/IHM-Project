@@ -7,9 +7,10 @@ export interface Evenement{
     
     prix?: number;
     idHotel: string;
-    imageUrl: string;
+     imageUrl: string;
     hotel?: {
       nom: string;
       ville: string;
     };
+    
   }

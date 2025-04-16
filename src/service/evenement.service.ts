@@ -10,8 +10,12 @@ import { Hotel } from 'src/models/hotel';
 })
 export class EvenementService {
   private apiUrl = 'http://localhost:3000';
-  constructor(private http: HttpClient,private hotelService: HotelService) { }
+  constructor(private http: HttpClient, private hotelService: HotelService) { }
 
+  getEvenementById(id: string): Observable<Evenement> {
+    const url = `http://localhost:3000/evenements/${id}`;  
+        return this.http.get<Evenement>(url);
+  }
   getNomHotelById(id: string): Observable<{ nom: string, ville: string }> {
     return this.http.get<Hotel>(`${this.apiUrl}/hotels/${id}`).pipe(
       map(hotel => ({
@@ -26,8 +30,8 @@ export class EvenementService {
     return this.http.get<Evenement[]>(`${this.apiUrl}/evenements`).pipe(
       switchMap(events => {
         if (!events || events.length === 0) return of([]);
-        
-        const requests = events.map(event => 
+
+        const requests = events.map(event =>
           this.getNomHotelById(event.idHotel).pipe(
             map(hotel => ({
               ...event,
@@ -38,7 +42,7 @@ export class EvenementService {
             }))
           )
         );
-        
+
         return forkJoin(requests);
       }),
       catchError(error => {
@@ -52,7 +56,8 @@ export class EvenementService {
     return new Date(date) > new Date();
   }
 
-    creerEvent(event: Evenement): Observable<Evenement> {
-      return this.http.post<Evenement>(this.apiUrl, event);
-    }
+  creerEvent(event: Evenement): Observable<Evenement> {
+    return this.http.post<Evenement>(this.apiUrl, event);
+  }
+  
 }

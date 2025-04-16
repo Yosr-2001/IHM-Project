@@ -1,0 +1,95 @@
+.breadcrumb {
+    padding: 0;
+    margin: 0 0 2rem 0;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    font-family: 'Segoe UI', 'Roboto', sans-serif;
+    font-size: 1rem;
+    color: #495057;
+    padding: 10px 270px;
+  }
+  
+  .breadcrumb-item {
+    display: inline-flex;
+    align-items: center;
+    color: #0081f2;
+    font-weight: 400;
+    position: relative;
+  }
+  
+  .breadcrumb-item a {
+    color: #060606;
+    text-decoration: none;
+    transition: all 0.25s ease;
+    padding: 0.25rem 0;
+    position: relative;
+    font-weight: 500;
+  }
+  
+  .breadcrumb-item a:hover {
+    color: #5D93E1;
+  }
+  
+  .breadcrumb-item a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: #5D93E1;
+    transition: width 0.3s ease;
+  }
+  
+  .breadcrumb-item a:hover::after {
+    width: 100%;
+  }
+  
+  .breadcrumb-item:not(:last-child)::after {
+    content: '›';
+    margin: 0 0.75rem;
+    color: #adb5bd;
+    font-size: 1.2em;
+    font-weight: 700;
+  }
+  
+  .breadcrumb-item:last-child {
+    color: #212529;
+    font-weight: 600;
+  }
+  
+  @media (max-width: 768px) {
+    .breadcrumb {
+      font-size: 0.85rem;
+    }
+  
+    .breadcrumb-item:not(:last-child)::after {
+      margin: 0 0.5rem;
+      font-size: 1.1em;
+    }
+  }
+  
+  .breadcrumb-item .breadcrumb-icon {
+    font-size: 1.5rem;
+    margin-right: 0.4rem;
+    color: #5D93E1;
+  }
+  
+  .breadcrumb-item .breadcrumb-icon:last-child {
+    display: none;
+  }
+  
+  .breadcrumb-item a:hover .breadcrumb-icon {
+    color: #2c3e50;
+  }
+  
+  .breadcrumb-item a:active .breadcrumb-icon {
+    color: #3498db;
+  }
+  
+  .breadcrumb-item a .breadcrumb-icon {
+    transition: color 0.2s ease;
+  }
+  

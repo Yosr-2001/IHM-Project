@@ -1,4 +1,18 @@
 {
+  "inscriptions": [
+    {
+      "id": "12",
+      "idClient": "123",
+      "idEvenement": "3",
+      "dateInscription": "2025-04-16T23:10:08.881Z"
+    },
+    {
+      "id": "12",
+      "idClient": "123",
+      "idEvenement": "6",
+      "dateInscription": "2025-04-16T23:23:42.833Z"
+    }
+  ],
   "composantsHotel": [
     {
       "id": "1",
@@ -409,6 +423,21 @@
         "dateArrivee": "2025-04-10",
         "dateDepart": "2025-04-18",
         "nombrePersonnes": 4
+      },
+      "statut": "en_attente"
+    },
+    {
+      "id": "aaa7",
+      "offreId": "",
+      "client": {
+        "nom": "aaaa",
+        "email": "aa@gmail.com",
+        "telephone": "122"
+      },
+      "details": {
+        "dateArrivee": "2025-04-17",
+        "dateDepart": "2025-04-17",
+        "nombrePersonnes": 1
       },
       "statut": "en_attente"
     }

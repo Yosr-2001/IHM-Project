@@ -57,9 +57,6 @@
     <p class="offre-description">Nous sommes désolés. Cliquez ici pour voir les alternatives.</p>
 </div>
 
-
-
-
 <div *ngIf="selectedOffer === 'none'" class="alternative-solutions">
     <h4><mat-icon>support_agent</mat-icon> Solutions alternatives :</h4>
 
@@ -82,13 +79,6 @@
             </div>
         </div>
 
-        <div class="solution-card" (click)="startLiveChat()">
-            <mat-icon class="solution-icon">chat</mat-icon>
-            <div class="solution-content">
-                <h5>Chat en direct</h5>
-                <p>Disponible de 8h à 20h</p>
-                <div class="action-text">Démarrer la discussion</div>
-            </div>
-        </div>
+        
     </div>
 </div>

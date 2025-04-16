@@ -12,23 +12,26 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { OffreComponent } from './offre/offre.component';
 import { EvenementComponent } from './evenement/evenement.component';
 import { ReservationPageComponent } from './reservation-page/reservation-page.component';
+import { MesInscriptionsComponent } from './mes-inscriptions/mes-inscriptions.component';
 
-const routes: Routes = [
-  { path: 'clients', component:ClientsComponent },
-  { path: 'roomTypes', component:RoomTypesComponent },
-  { path: 'reservations', component:ReservationsComponent },
-  { path: 'home', component:HomeComponent },
-  { path: 'rooms', component:RoomComponent },
-  { path: 'hotels', component:HotelListComponent },
-  { path: 'hotel/:id', component: HotelComponent },  
-  { path: 'login', component: LoginComponent},
-  { path: 'offres', component: OffreComponent},
-  { path: 'evenements', component: EvenementComponent},
+ 
+  const routes: Routes = [
+    { path: '', component: WelcomeComponent, data: { breadcrumb: 'Accueil' } },
+
+    { path: 'clients', component: ClientsComponent, data: { breadcrumb: 'Clients' } },
+    { path: 'roomTypes', component: RoomTypesComponent, data: { breadcrumb: 'Types de Chambre' } },
+    { path: 'reservations', component: ReservationsComponent, data: { breadcrumb: 'Réservations' } },
+     { path: 'rooms', component: RoomComponent, data: { breadcrumb: 'Chambres' } },
+    { path: 'login', component: LoginComponent, data: { breadcrumb: 'Connexion' } },
+    { path: 'offres', component: OffreComponent, data: { breadcrumb: 'Offres' } },
+    { path: 'evenements', component: EvenementComponent, data: { breadcrumb: 'Événements' } },
+    { path: 'hotels', component: HotelListComponent, data: { breadcrumb: 'Hôtels' } },
+    { path: 'hotel/:id', component: HotelComponent, data: { breadcrumb: 'Détails Hôtel' } },  
+    { path: 'reservation/:id', component: ReservationPageComponent, data: { breadcrumb: 'Réservation' } },
+    { path: 'mes-inscriptions', component: MesInscriptionsComponent, data: { breadcrumb: 'Mes Inscriptions' } },  
   
-  { path: 'reservation/:id', component: ReservationPageComponent },
-
-  { path: '', component:WelcomeComponent },
-];
+    
+   ]
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

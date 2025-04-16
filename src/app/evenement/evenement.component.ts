@@ -1,6 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 import { Evenement } from 'src/models/evenement';
+import { Inscription } from 'src/models/inscription';
 import { EvenementService } from 'src/service/evenement.service';
+import { InscriptionService } from 'src/service/inscription.service';
 
 @Component({
   selector: 'app-evenement',
@@ -12,10 +16,14 @@ export class EvenementComponent implements OnInit {
   events: any[] = [];
   loading = true;
   evenement!:Evenement;
-  error = '';
- 
+  error = ''; 
   currentDate = new Date();
-  constructor(private ES:EvenementService) { }
+  constructor(private ES:EvenementService,
+    private IS: InscriptionService,
+        private snackBar: MatSnackBar, 
+        private router: Router
+    
+  ) { }
 
   ngOnInit(): void { this.loadEvents();
   }
@@ -37,18 +45,33 @@ export class EvenementComponent implements OnInit {
   isUpcoming(date: Date): boolean {
     return this.ES.isUpcoming(date);
   }
+ 
+  clientId = '123';
+  sinscrire(event: any) {
+    const nouvelleInscription: Inscription = {
+      id: '12',
+      idClient: this.clientId,
+      idEvenement: event.id,
+      dateInscription: new Date()
+    };
 
-  submitEvent() {
-    this.ES.creerEvent(this.evenement).subscribe(
-      (response) => {
-        console.log('event effectuée avec succès', response);
-         
-        
+    this.IS.ajouterInscription(nouvelleInscription).subscribe({
+      next: (res) => {
+        console.log('Inscription réussie', res);
+        this.snackBar.open('✓ Inscription confirmée', 'Fermer', {
+          panelClass: ['snackbar-premium'],
+          verticalPosition: 'top',
+          horizontalPosition: 'center',
+          duration: 3000
+        });
       },
-      (error) => {
-        console.error('Erreur lors de la création de l event', error);
-        
+      error: (err) => {
+        console.error('Erreur lors de l’inscription', err);
+        alert('Une erreur est survenue. Veuillez réessayer.');
       }
-    );
+    });
   }
+
+   goToMesEvents(): void {
+    this.router.navigate(['/mes-inscriptions']);    }
 }

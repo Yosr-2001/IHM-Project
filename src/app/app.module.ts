@@ -51,13 +51,16 @@ import { OffreComponent } from './offre/offre.component';
 // https://firebase.google.com/docs/web/setup#available-libraries
 import { MatRadioModule } from '@angular/material/radio';
 import { EvenementComponent } from './evenement/evenement.component';
-
+ 
 
 
 import { MatDialogModule } from '@angular/material/dialog';
 import { ReservationPageComponent } from './reservation-page/reservation-page.component';
+ import { MesInscriptionsComponent } from './mes-inscriptions/mes-inscriptions.component';
+import { BreadcrumbComponent } from './shared/breadcrumb/breadcrumb.component';
 @NgModule({
   declarations: [
+    BreadcrumbComponent,
     AppComponent,
     AboutComponent,
     ContactsComponent,
@@ -77,7 +80,9 @@ import { ReservationPageComponent } from './reservation-page/reservation-page.co
     OffreComponent,
     EvenementComponent,
  
-    ReservationPageComponent,
+    ReservationPageComponent, 
+       MesInscriptionsComponent, 
+     
 
   ],
   imports: [
@@ -110,7 +115,7 @@ import { ReservationPageComponent } from './reservation-page/reservation-page.co
     BrowserAnimationsModule,
     MatRadioModule,
     MatDialogModule,
-
+     
 
   ],
 

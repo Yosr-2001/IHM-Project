@@ -1,0 +1,54 @@
+<div class="inscriptions-container">
+    <h1 class="myevents-title">
+      Mes Inscriptions
+    </h1>
+  
+    <div class="cancel-button">
+      <button mat-stroked-button color="primary" [routerLink]="['/evenements']">
+        <mat-icon>arrow_back</mat-icon>
+        Retour aux événements
+      </button>
+    </div>
+  
+    <div *ngIf="inscriptions.length === 0">
+      <p>Vous n'êtes inscrit à aucun événement.</p>
+    </div>
+  
+    <div *ngIf="inscriptions.length > 0">
+      <ul class="inscriptions-list">
+        <li *ngFor="let inscription of inscriptions">
+          <div class="event-details">
+           
+  
+            <div class="event-info">
+              <p><strong>{{ inscription.evenement?.nom }}</strong></p>
+              <p class="event-description">
+                {{ inscription.evenement?.description || 'Aucune description disponible' }}
+              </p>
+              <p class="event-location">
+                <mat-icon>location_on</mat-icon>
+                <span>{{ inscription.evenement?.hotel?.nom || 'Lieu non spécifié' }}, 
+                  {{ inscription.evenement?.hotel?.ville || 'Ville non spécifiée' }}</span>
+              </p>
+  
+              <p class="event-schedule">
+                <mat-icon>calendar_today</mat-icon>
+                <span>{{ inscription.evenement?.date | date:'fullDate' }} à {{ inscription.evenement?.heure || 'Non spécifiée' }}</span>
+              </p>
+  
+              <p *ngIf="inscription.evenement?.prix" class="event-price">
+                <mat-icon>attach_money</mat-icon>
+                <span>{{ inscription.evenement?.prix }}€</span>
+              </p>
+  
+              <p *ngIf="!inscription.evenement?.prix" class="event-price">
+                <span>Prix non spécifié</span>
+              </p>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+   
+  

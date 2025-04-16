@@ -4,21 +4,25 @@
       <mat-icon class="header-icon">event_available</mat-icon>
       Événements dans nos hôtels
     </h1>
+    
     <p class="subtitle">Découvrez des expériences uniques à travers nos établissements</p>
-  </div> 
-
+  </div>
+  <div class="my-events-button">
+    <button mat-raised-button color="primary" (click)="goToMesEvents()">
+      Mes inscriptions <mat-icon>arrow_forward</mat-icon>
+    </button>
+  </div>
   <div *ngIf="!loading && events.length === 0" class="empty-state">
     <mat-icon>event_busy</mat-icon>
     <p>Aucun événement prévu pour le moment</p>
   </div>
 
   <div class="events-list" *ngIf="!loading && events.length > 0">
-    <div *ngFor="let event of events" class="event-card" 
-         [class.upcoming]="isUpcoming(event.date)">
+    <div *ngFor="let event of events" class="event-card" [class.upcoming]="isUpcoming(event.date)">
       <div class="event-image">
         <img [src]="event.imageUrl || 'assets/default-event.jpg'" alt="{{event.nom}}">
       </div>
-      
+
       <div class="event-content">
         <div class="event-header">
           <h3 class="event-title">{{ event.nom }}</h3>
@@ -26,34 +30,35 @@
             {{ event.prix }}€
           </div>
         </div>
-        
+
         <p class="event-description">{{ event.description }}</p>
-        
+
         <div class="event-details">
           <div class="detail-item">
             <mat-icon class="calendar-icon">calendar_today</mat-icon>
             <span>{{ event.date | date:'fullDate' }} à {{ event.heure }}</span>
           </div>
-          
+
           <div class="detail-item">
             <mat-icon>location_on</mat-icon>
             <span>{{ event.hotel?.nom }}, {{ event.hotel?.ville }}</span>
           </div>
-          
+
           <div *ngIf="isUpcoming(event.date)" class="detail-item upcoming-badge">
             <mat-icon>notification_important</mat-icon>
             <span>Événement à venir</span>
           </div>
         </div>
-        
+
         <div class="event-actions">
-          <button mat-flat-button color="accent" class="reservation-btn">
+          <button mat-flat-button color="accent" class="reservation-btn" (click)="sinscrire(event)">
             S'inscrire <mat-icon>how_to_reg</mat-icon>
           </button>
         </div>
       </div>
     </div>
   </div>
+
 </div>
 
 <app-footer></app-footer>
