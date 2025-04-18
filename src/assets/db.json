@@ -11,6 +11,18 @@
       "idClient": "123",
       "idEvenement": "6",
       "dateInscription": "2025-04-16T23:23:42.833Z"
+    },
+    {
+      "id": "12",
+      "idClient": "123",
+      "idEvenement": "2",
+      "dateInscription": "2025-04-18T12:13:46.440Z"
+    },
+    {
+      "id": "12",
+      "idClient": "123",
+      "idEvenement": "2",
+      "dateInscription": "2025-04-18T12:14:28.404Z"
     }
   ],
   "composantsHotel": [
@@ -440,6 +452,26 @@
         "nombrePersonnes": 1
       },
       "statut": "en_attente"
+    }
+  ],
+  "users": [
+    {
+      "id": "1",
+      "nom": "Ali",
+      "prenom": "Ben Saleh",
+      "email": "Ali@gmail.com",
+      "num_tel": "1234567890",
+      "date_naissance": "1990-01-01",
+      "password": "Ali123"
+    },
+    {
+      "id": "2",
+      "nom": "Ahmed",
+      "prenom": "Ben Othmene",
+      "email": "Ahmed@gmail.com",
+      "num_tel": "5969874",
+      "date_naissance": "2000-01-01",
+      "password": "Ahmed123"
     }
   ]
 }

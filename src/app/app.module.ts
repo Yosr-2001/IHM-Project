@@ -58,6 +58,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { ReservationPageComponent } from './reservation-page/reservation-page.component';
  import { MesInscriptionsComponent } from './mes-inscriptions/mes-inscriptions.component';
 import { BreadcrumbComponent } from './shared/breadcrumb/breadcrumb.component';
+import { ProfilComponent } from './profil/profil.component';
 @NgModule({
   declarations: [
     BreadcrumbComponent,
@@ -81,7 +82,7 @@ import { BreadcrumbComponent } from './shared/breadcrumb/breadcrumb.component';
     EvenementComponent,
  
     ReservationPageComponent, 
-       MesInscriptionsComponent, 
+       MesInscriptionsComponent, ProfilComponent, 
      
 
   ],

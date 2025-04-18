@@ -1,0 +1,34 @@
+<div class="container mt-4">
+    <h2>Modifier l'utilisateur</h2>
+  
+    <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label>Nom</label>
+        <input formControlName="nom" class="form-control" type="text" />
+      </div>
+  
+      <div class="form-group">
+        <label>Prénom</label>
+        <input formControlName="prenom" class="form-control" type="text" />
+      </div>
+  
+      <div class="form-group">
+        <label>Email</label>
+        <input formControlName="email" class="form-control" type="email" />
+      </div>
+  
+    
+  
+      <div class="form-group">
+        <label>Numéro de téléphone</label>
+        <input formControlName="num_tel" class="form-control" type="text" />
+      </div>
+  
+      <div class="form-group">
+        <label>Date de naissance</label>
+        <input formControlName="date_naissance" class="form-control" type="date" />
+      </div>
+  
+      <button class="btn btn-primary mt-3" type="submit" [disabled]="userForm.invalid">Enregistrer</button>
+    </form>
+  </div>

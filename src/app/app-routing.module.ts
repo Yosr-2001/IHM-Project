@@ -13,6 +13,7 @@ import { OffreComponent } from './offre/offre.component';
 import { EvenementComponent } from './evenement/evenement.component';
 import { ReservationPageComponent } from './reservation-page/reservation-page.component';
 import { MesInscriptionsComponent } from './mes-inscriptions/mes-inscriptions.component';
+import { ProfilComponent } from './profil/profil.component';
 
  
   const routes: Routes = [
@@ -29,7 +30,8 @@ import { MesInscriptionsComponent } from './mes-inscriptions/mes-inscriptions.co
     { path: 'hotel/:id', component: HotelComponent, data: { breadcrumb: 'Détails Hôtel' } },  
     { path: 'reservation/:id', component: ReservationPageComponent, data: { breadcrumb: 'Réservation' } },
     { path: 'mes-inscriptions', component: MesInscriptionsComponent, data: { breadcrumb: 'Mes Inscriptions' } },  
-  
+    { path: 'profil', component: ProfilComponent, data: { breadcrumb: 'Profile' } },
+
     
    ]
 

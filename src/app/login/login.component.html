@@ -1,30 +1,43 @@
 <div class="login-container">
-    <div class="login-card">
-      <h2>Connexion à Hôtelia</h2>
-      <form (submit)="onLogin()">
-        <mat-form-field appearance="outline" class="full-width">
-          <mat-label>Email</mat-label>
-          <input matInput type="email" [(ngModel)]="email" name="email" required>
-        </mat-form-field>
-        
-        <mat-form-field appearance="outline" class="full-width">
-          <mat-label>Mot de passe</mat-label>
-          <input matInput type="password" [(ngModel)]="password" name="password" required>
-        </mat-form-field>
-        
-        <div class="login-actions">
-          <button mat-flat-button color="primary" class="login-btn" type="submit">
-            Se connecter
-          </button>
-          <button mat-stroked-button color="accent" routerLink="/register">
-            S'inscrire
-          </button>
-        </div>
-        
-        <div class="forgot-password">
-          <a href="/forgot-password">Mot de passe oublié ?</a>
-        </div>
-      </form>
+  <div class="login-left">
+    <h2> Connexion 👋</h2>
+    <!-- <p>How do I get started?</p> -->
+    <button class="btn btn-google">Continuer avec Google</button>
+    <button class="btn btn-apple">Continuer avec Apple</button>
+    <!-- <p>or Login with Email</p> -->
+
+    <!-- Formulaire de connexion -->
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <label for="email">Email</label>
+      <input id="email" formControlName="email" type="email" placeholder="Entrez votre email" />
+      <div *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched">
+        <small *ngIf="loginForm.get('email')?.hasError('required')">L'email est requis.</small>
+        <small *ngIf="loginForm.get('email')?.hasError('email')">L'email n'est pas valide.</small>
+      </div>
+
+      <label for="password">Mot de passe</label>
+      <input id="password" formControlName="password" type="password" placeholder="Entrez votre mot de passe" />
+      <div *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
+        <small *ngIf="loginForm.get('password')?.hasError('required')">Le mot de passe est requis.</small>
+        <small *ngIf="loginForm.get('password')?.hasError('minlength')">Le mot de passe doit comporter au moins 6 caractères.</small>
+      </div>
+
+      <button type="submit" class="btn btn-signin">Connexion</button>
+    </form>
+
+    <!-- Message d'erreur global -->
+    <div *ngIf="errorMessage" class="error-message">
+      {{ errorMessage }}
+    </div>
+
+    <p>Vous n'avez pas de compte ? <a href="">S'inscrire</a></p>
+  </div>
+
+  <div class="login-right">
+    <div class="login-info">
+      
+
+      <img src="assets/rec.avif" alt="Dashboard example">
     </div>
   </div>
-  
+</div>

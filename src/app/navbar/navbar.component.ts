@@ -2,6 +2,7 @@
 import { animate, style, transition, trigger } from '@angular/animations';
 import { Component, HostListener } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/service/auth.service';
  
 @Component({
   selector: 'app-navbar',
@@ -21,7 +22,8 @@ import { Router } from '@angular/router';
   ]
 })
 export class NavbarComponent {
-
+  isDropdownOpen=false;
+  user:any;
   userName: string = "Jean Dupont"; 
   navLinks = [
     { path: '/clients', label: 'Clients', icon: 'people' },
@@ -29,7 +31,7 @@ export class NavbarComponent {
     { path: '/rooms', label: 'Chambres', icon: 'meeting_room' }
   ];
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private authService: AuthService) {}
 
   @HostListener('window:resize')
   onResize() {
@@ -40,8 +42,32 @@ export class NavbarComponent {
     return this.router.url.includes(path);
   }
   
-logout() {
-  //this.authService.logout(); /*****a corriger apres */
-  this.router.navigate(['/login']);
+ 
+ngOnInit(): void {
+  this.authService.currentUser$.subscribe(currentUser => {
+    this.user = currentUser;
+  });
 }
+
+
+
+logout(): void {
+
+  localStorage.removeItem('currentUser');
+  // Réinitialise le BehaviorSubject
+  this.isDropdownOpen = false; // Ferme le menu déroulant
+  this.authService.logout(); // Appel de la méthode logout dans le service
+  this.router.navigate(['/login']); // Redirection vers la page de login
+}
+
+
+toggleDropdown(): void {
+  this.isDropdownOpen = !this.isDropdownOpen;
+}
+
+closeDropdown(): void {
+  this.isDropdownOpen = false;
+}
+
+
 }
