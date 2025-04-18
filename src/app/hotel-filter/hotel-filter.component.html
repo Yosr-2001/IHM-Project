@@ -1,0 +1,28 @@
+<div class="container">
+    <aside class="sidebar">
+      <h2>Filtres</h2>
+  
+      <div class="filter">
+        <label>Prix minimum (€)</label>
+        <input type="number" [(ngModel)]="filters.prixMin" (input)="applyFilters()" />
+      </div>
+  
+      <div class="filter">
+        <label>Étoiles minimum</label>
+        <select [(ngModel)]="filters.etoiles" (change)="applyFilters()">
+          <option [ngValue]="null">Toutes</option>
+          <option *ngFor="let etoile of [1, 2, 3, 4, 5]" [ngValue]="etoile">{{ etoile }}+</option>
+        </select>
+      </div>
+  
+      <div class="filter">
+        <label>
+          <input type="checkbox" checked [(ngModel)]="filters.piscine" (change)="applyFilters()" />
+          Avec piscine
+        </label>
+      </div>
+  
+      <button (click)="resetFilters()">Réinitialiser</button>
+    </aside>
+  </div>
+  

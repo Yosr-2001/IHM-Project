@@ -1,3 +1,5 @@
+
+
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { HotelService } from '../../service/hotel.service';
@@ -14,6 +16,7 @@ export class HotelComponent implements OnInit {
   hotel!: Hotel ;
   composants: any[] = [];
   loading = true;
+
 
    constructor(private route: ActivatedRoute, private hotelService: HotelService) {}
 
@@ -43,7 +46,9 @@ export class HotelComponent implements OnInit {
         this.loading = false;
       }
     });
+
   }
+
 
 
   loadComposants(ids: (string | number)[]): void {
@@ -51,7 +56,7 @@ export class HotelComponent implements OnInit {
       next: (composants) => {
         this.composants = composants;
         this.loading = false;
-        console.log("Liste des composants:", composants);  
+        console.log("Liste des composants:", composants); // Debug propre
       },
       error: (err) => {
         console.error('Error loading components', err);

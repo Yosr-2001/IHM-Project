@@ -1,0 +1,80 @@
+
+.container {
+    display: flex;
+    position: relative; /* Pour permettre le positionnement absolu de la sidebar */
+  }
+  
+  /* Sidebar */
+  .sidebar {
+    width: 250px;
+    padding: 20px;
+    background-color: transparent;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 52vh;
+    transform: translateX(-100%); /* Initialement caché */
+    transition: transform 0.3s ease; /* Animation de transition */
+    box-sizing: border-box;
+    z-index: 1000; /* Assure que la sidebar est au-dessus du contenu principal */
+  }
+  
+  .sidebar.open {
+    transform: translateX(0); /* Affiche la sidebar */
+  }
+  
+  .sidebar h2 {
+    font-size: 22px;
+    margin-bottom: 20px;
+  }
+  
+  .filter {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .filter label {
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .sidebar input[type="number"],
+  .sidebar select {
+    padding: 6px 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .sidebar button {
+    margin-top: 10px;
+    padding: 8px 12px;
+    width: 100%;
+    border: none;
+    background-color: #ddd;
+    cursor: pointer;
+    border-radius: 4px;
+    font-weight: bold;
+  }
+  
+  .sidebar button:hover {
+    background-color: #ccc;
+  }
+  
+  /* Résultats */
+  .hotel-results {
+    flex: 1;
+    padding: 20px;
+    background-color: #f9f9f9;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+  }
+  
+  .hotel-card {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+    padding: 16px;
+  }

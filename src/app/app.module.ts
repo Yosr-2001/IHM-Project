@@ -59,6 +59,7 @@ import { ReservationPageComponent } from './reservation-page/reservation-page.co
  import { MesInscriptionsComponent } from './mes-inscriptions/mes-inscriptions.component';
 import { BreadcrumbComponent } from './shared/breadcrumb/breadcrumb.component';
 import { ProfilComponent } from './profil/profil.component';
+import { HotelFilterComponent } from './hotel-filter/hotel-filter.component';
 @NgModule({
   declarations: [
     BreadcrumbComponent,
@@ -82,7 +83,7 @@ import { ProfilComponent } from './profil/profil.component';
     EvenementComponent,
  
     ReservationPageComponent, 
-       MesInscriptionsComponent, ProfilComponent, 
+       MesInscriptionsComponent, ProfilComponent, HotelFilterComponent, 
      
 
   ],

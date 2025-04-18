@@ -1,4 +1,4 @@
-<div class="hotel-search-container">
+<!-- <div class="hotel-search-container">
   <div class="search-card">
     <mat-form-field appearance="standard" class="full-width">
       <mat-icon matSuffix>search</mat-icon>
@@ -30,6 +30,82 @@
           <mat-icon>star</mat-icon>
           {{ hotel.note }} / 5
         </span> 
+        <span class="stat-badge">
+          <mat-icon>meeting_room</mat-icon>
+          {{ hotel.nbre_chambre }} chambres
+        </span>
+
+        <span class="stat-badge">
+          <mat-icon>pool</mat-icon>
+          {{ hotel.nbre_piscine }} piscines
+        </span>
+
+        <span class="stat-badge">
+          <mat-icon>euro_symbol</mat-icon>
+          {{ hotel.prix_moyen }} € / nuit
+        </span>
+      </div>
+
+      <div class="hotel-cta">
+        <button mat-flat-button color="primary" class="details-button" [routerLink]="['/hotel', hotel.id]">
+          Voir détails
+          <mat-icon>arrow_forward</mat-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="no-results" *ngIf="filteredHotels.length === 0">
+    <mat-icon>search_off</mat-icon>
+    <h3>Aucun hôtel ne correspond à votre recherche</h3>
+  </div>
+</div>
+<app-footer></app-footer> -->
+
+
+<div class="hotel-search-container">
+  <div class="search">
+
+    <div class="search-card">
+      <mat-form-field appearance="fill" class="full-width custom-search">
+        <mat-icon matPrefix>search</mat-icon>
+        <input matInput placeholder="Rechercher un hôtel, une région..." [(ngModel)]="searchTerm" class="inputFilter"
+          (input)="filterHotels()" />
+        <button mat-icon-button matSuffix class="filter-icon" (click)="toggleFilter()" type="button">
+          <i class="fas fa-filter"></i>
+        </button>
+      </mat-form-field>
+    </div>
+
+  </div>
+
+
+  <div class="filters" [ngClass]="{'show-filters': showFilters}">
+    <app-hotel-filter (filtersChanged)="onFiltersUpdated($event)"></app-hotel-filter>
+  </div>
+  <div class="hotels-grid" [@listAnimation]>
+    <div class="hotel-card" *ngFor="let hotel of filteredHotels">
+      <div class="hotel-image" [style.background-image]="'url(' + hotel.image + ')'"></div>
+
+      <div class="hotel-header">
+        <div class="hotel-icon">
+          <mat-icon>hotel</mat-icon>
+        </div>
+        <h3 class="hotel-title">{{ hotel.nom }}</h3>
+      </div>
+
+      <div class="location">
+        <mat-icon>location_on</mat-icon>
+        <span>{{ hotel.region }}</span>
+      </div>
+
+      <p class="hotel-description">{{ hotel.description }}</p>
+
+      <div class="hotel-stats">
+        <span class="stat-badge">
+          <mat-icon>star</mat-icon>
+          {{ hotel.note }} / 5
+        </span>
         <span class="stat-badge">
           <mat-icon>meeting_room</mat-icon>
           {{ hotel.nbre_chambre }} chambres

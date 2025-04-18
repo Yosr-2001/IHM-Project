@@ -1,5 +1,5 @@
- <div class="hotel-detail-container" *ngIf="hotel">
-   <div class="hotel-main">
+<div class="hotel-detail-container" *ngIf="hotel">
+  <div class="hotel-main">
     <img [src]="hotel.image" alt="Image de l'hôtel" class="hotel-image">
     <div class="hotel-info">
       <h1>{{ hotel.nom }}</h1>
@@ -34,27 +34,8 @@
     </div>
   </div>
 
-  <!-- <div class="hotel-offers" *ngIf="hotel.offres.length > 0">
-    <h3>Offres spéciales</h3>
-    <div *ngFor="let offre of hotel.offres" class="offer-card">
-      <h4>{{ offre.nom }}</h4>
-      <p>{{ offre.description }}</p>
-      <p><mat-icon class="calendar_today">calendar_today</mat-icon> Du {{ offre.date_debut }} au {{ offre.date_fin }}
-      </p>
-      <p><mat-icon class="local_offer">local_offer</mat-icon> Réduction : {{ offre.reduction * 100 }}%</p>
-    </div>
-  </div> -->
 
-  <!-- <div class="hotel-reviews" *ngIf="hotel.avis.length > 0">
-    <h3>Avis des clients</h3>
-    <div *ngFor="let avis of hotel.avis" class="review-card">
-      <p><mat-icon class="star">star</mat-icon> Note : {{ avis.note }}</p>
-      <p class="comment">{{ avis.commentaire }}</p>
-    </div>
-  </div> -->
-
- 
-   <app-offre *ngIf="hotel" [hotelId]="hotel.id"></app-offre>
+  <app-offre *ngIf="hotel" [hotelId]="hotel.id"></app-offre>
 
 </div>
 

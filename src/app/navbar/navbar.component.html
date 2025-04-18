@@ -1,4 +1,4 @@
-<nav class="navbar">
+<nav class="navbar" >
     <a href="/" class="logo">
         <span class="material-icons logo-icon">hotel</span>
         L'Étoile Hôtelière
@@ -22,7 +22,7 @@
        
      
         
-        <li class="nav-item">
+        <li class="nav-item" *ngIf="user">
             <a href="/historique" class="nav-link">
                 <span class="material-icons">book</span>
                 Mes Réservations
@@ -57,12 +57,12 @@
           </li>
         </ul>
       </li>
-        <mat-divider [vertical]="true"></mat-divider>
+        <mat-divider [vertical]="true"*ngIf="!user"></mat-divider>
 
-        <li class="nav-item">
+        <li class="nav-item" *ngIf="!user">
             <a href="/login" class="nav-link">
-                <span class="material-icons">logout</span>
-                Logout
+                <span class="material-icons">login</span>
+               Connexion
             </a>
         </li>
          
