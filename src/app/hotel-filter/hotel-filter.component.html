@@ -1,7 +1,11 @@
 <div class="container">
     <aside class="sidebar">
       <h2>Filtres</h2>
-  
+   
+      <div class="filter">
+        <label>Prix maximum (€)</label>
+        <input type="number" [(ngModel)]="filters.prixMax" (input)="applyFilters()" />
+      </div>
       <div class="filter">
         <label>Prix minimum (€)</label>
         <input type="number" [(ngModel)]="filters.prixMin" (input)="applyFilters()" />

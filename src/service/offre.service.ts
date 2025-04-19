@@ -1,17 +1,19 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core'; 
-import { Observable } from 'rxjs';
+import { Injectable } from '@angular/core';
+import { map, Observable } from 'rxjs';
+import { Hotel } from 'src/models/hotel';
 import { Offre, Reservation } from 'src/models/offre';
 
 @Injectable({
   providedIn: 'root'
 })
 export class OffreService {
-  private apiUrl = 'http://localhost:3000'; 
-  constructor(private http :HttpClient) { }
+  private apiUrl = 'http://localhost:3000';
+  constructor(private http: HttpClient) { }
 
-  getOffresByHotel(hotelID: string):Observable<Offre[]>{
+  getOffresByHotel(hotelID: string): Observable<Offre[]> {
     return this.http.get<Offre[]>(`${this.apiUrl}/offres?hotelId=${hotelID}`);
+
   }
 
   createReservation(reservation: Reservation): Observable<Reservation> {
@@ -19,14 +21,13 @@ export class OffreService {
   }
 
   getOffreById(id: string): Observable<Offre> {
-    return this.http.get<Offre>(`${this.apiUrl}/${id}`);
+    return this.http.get<Offre[]>(`${this.apiUrl}/offres?id=${id}`).pipe(
+      map(offres => offres[0]) // récupérer la première offre (car c'est un tableau)
+    );
   }
-  
-  // getReservationsByUser(userId: string): Observable<Reservation[]> {
-  //   return this.http.get<Reservation[]>(`${this.apiUrl}/reservations?clientId=${userId}`);
-  // }
+  getHotelById(hotelId: string): Observable<Hotel> {
+    return this.http.get<Hotel>(`${this.apiUrl}/hotels/${hotelId}`);
+  }
 
-  // cancelReservation(reservationId: string): Observable<void> {
-  //   return this.http.patch<void>(`${this.apiUrl}/reservations/${reservationId}`, { statut: 'annulée' });
-  // }
+
 }

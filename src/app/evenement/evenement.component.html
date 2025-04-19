@@ -3,15 +3,17 @@
     <h1 class="offres-title">
       <mat-icon class="header-icon">event_available</mat-icon>
       Événements dans nos hôtels
+      
     </h1>
-    
-    <p class="subtitle">Découvrez des expériences uniques à travers nos établissements</p>
+    <div class="my-events-button">
+      <button mat-raised-button color="primary" (click)="goToMesEvents()">
+        Mes inscriptions <mat-icon>arrow_forward</mat-icon>
+      </button>
+    </div>
+    <!-- <p class="subtitle">Découvrez des expériences uniques à travers nos établissements</p> -->
+     
   </div>
-  <div class="my-events-button">
-    <button mat-raised-button color="primary" (click)="goToMesEvents()">
-      Mes inscriptions <mat-icon>arrow_forward</mat-icon>
-    </button>
-  </div>
+ 
   <div *ngIf="!loading && events.length === 0" class="empty-state">
     <mat-icon>event_busy</mat-icon>
     <p>Aucun événement prévu pour le moment</p>

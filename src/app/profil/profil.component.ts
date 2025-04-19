@@ -20,35 +20,13 @@ export class ProfilComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router
   ) {}
-
-  // ngOnInit(): void {
-  //   // Récupérer les données de l'utilisateur depuis localStorage
-  //   const userString = localStorage.getItem('currentUser');
-  //   if (userString) {
-  //     this.currentUser = JSON.parse(userString); // Parser les données JSON
-  //   }
-
-  //   // Si tu veux utiliser l'ID de l'URL (dans la route), tu peux le récupérer comme avant
-  //   this.userId = +this.route.snapshot.paramMap.get('id')!;
-
-  //   // Initialisation du formulaire
-  //   this.userForm = this.fb.group({
-  //     nom: [this.currentUser?.nom || '', Validators.required],
-  //     prenom: [this.currentUser?.prenom || '', Validators.required],
-  //     email: [this.currentUser?.email || '', [Validators.required, Validators.email]],
-  //     num_tel: [this.currentUser?.num_tel || '', Validators.required],
-  //     date_naissance: [this.currentUser?.date_naissance || '', Validators.required],
-  //   });
-
-  //   // Si tu as un autre service pour charger un utilisateur par ID, tu peux garder cette méthode
-  //   // this.loadUser(); // Si nécessaire pour charger les infos d'un utilisateur spécifique
-  // }
+ 
 
   ngOnInit(): void {
     const userString = localStorage.getItem('currentUser');
     if (userString) {
       this.currentUser = JSON.parse(userString);
-      this.userId = this.currentUser.id; // Récupérer l'ID depuis l'utilisateur actuel
+      this.userId = this.currentUser.id;  
     } else {
       console.error('Utilisateur non trouvé dans localStorage.');
       alert('Impossible de charger les informations de l\'utilisateur.');
@@ -63,8 +41,7 @@ export class ProfilComponent implements OnInit {
     });
   }
 
-  // Cette méthode est utilisée pour pré-remplir les informations de l'utilisateur si elles sont disponibles
-  loadUser() {
+   loadUser() {
     this.userService.getUserById(this.userId).subscribe(user => {
       this.userForm.patchValue(user);
     });
@@ -78,6 +55,10 @@ export class ProfilComponent implements OnInit {
       this.userService.modifyUser(updatedUser, updatedUser.id).subscribe(
         () => {
           alert('Utilisateur mis à jour avec succès !');
+          setTimeout(() => {
+            this.router.navigate(['/']);
+          }, 3000);
+         
         },
         error => {
           console.error('Erreur lors de la mise à jour de l\'utilisateur :', error);

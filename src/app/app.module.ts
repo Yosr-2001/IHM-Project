@@ -12,8 +12,7 @@ import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { environment } from '../environments/environment';
 import { CrudService } from '../service/crud.service';
-
-// Import the functions you need from the SDKs you need
+ 
 import { initializeApp } from "firebase/app";
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ClientsComponent } from './clients/clients.component';
@@ -41,8 +40,7 @@ import { MatChipsModule } from '@angular/material/chips';
 import { MatCardModule } from '@angular/material/card';
 import { HotelComponent } from './hotel/hotel.component';
 import { MatMenuModule } from '@angular/material/menu';
-import { ReactiveFormsModule } from '@angular/forms';  // Importation du module des formulaires réactifs
-
+import { ReactiveFormsModule } from '@angular/forms';  
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -60,6 +58,8 @@ import { ReservationPageComponent } from './reservation-page/reservation-page.co
 import { BreadcrumbComponent } from './shared/breadcrumb/breadcrumb.component';
 import { ProfilComponent } from './profil/profil.component';
 import { HotelFilterComponent } from './hotel-filter/hotel-filter.component';
+import { SignupComponent } from './signup/signup.component';
+import { MesReservationsComponent } from './mes-reservations/mes-reservations.component';
 @NgModule({
   declarations: [
     BreadcrumbComponent,
@@ -83,7 +83,7 @@ import { HotelFilterComponent } from './hotel-filter/hotel-filter.component';
     EvenementComponent,
  
     ReservationPageComponent, 
-       MesInscriptionsComponent, ProfilComponent, HotelFilterComponent, 
+       MesInscriptionsComponent, ProfilComponent, HotelFilterComponent, SignupComponent, MesReservationsComponent, 
      
 
   ],

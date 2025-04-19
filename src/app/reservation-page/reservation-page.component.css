@@ -1,12 +1,114 @@
-.mat-snack-bar-container {
-  position: fixed !important;  /* Fixer en position absolue */
-  top: 0 !important;  /* Placer en haut */
-  left: 50% !important;
-  transform: translateX(-50%);  /* Centrer horizontalement */
-  z-index: 9999;  /* Assurez-vous qu'il est bien au-dessus d'autres éléments */
+.container {
+  display: flex;
+  position: relative;
+  font-family: 'Segoe UI', sans-serif;
 }
 
-/* Style personnalisé du snackbar succès */
+.sidebar {
+  width: 260px;
+  padding: 24px;
+  background-color: #ffffffea;
+  box-shadow: 4px 0 15px rgba(0, 0, 0, 0.08);
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 55vh;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+  box-sizing: border-box;
+  z-index: 1000;
+  border-radius: 0 16px 16px 0;
+  backdrop-filter: blur(8px);
+}
+
+.sidebar.open {
+  transform: translateX(0);
+}
+
+.sidebar h2 {
+  font-size: 22px;
+  margin-bottom: 24px;
+  color: #2c3e50;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 8px;
+}
+
+.filter {
+  margin-bottom: 18px;
+  display: flex;
+  flex-direction: column;
+}
+
+.filter label {
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #555;
+}
+
+.sidebar input[type="number"],
+.sidebar select {
+  padding: 8px 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+  background-color: #fff;
+  transition: border-color 0.2s ease;
+}
+
+.sidebar input:focus,
+.sidebar select:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.sidebar button {
+  margin-top: 15px;
+  padding: 10px 14px;
+  width: 100%;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.sidebar button:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+}
+
+.hotel-results {
+  flex: 1;
+  padding: 24px;
+  background-color: #f5f7fa;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+.hotel-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.08);
+  padding: 20px;
+  transition: transform 0.2s ease;
+}
+
+.hotel-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.1);
+}
+
+.mat-snack-bar-container {
+  position: fixed !important;
+  top: 0 !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  z-index: 10000 !important;
+}
+
 .snackbar-success {
   background-color: #4CAF50;
   color: white;
@@ -18,15 +120,8 @@
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
   text-transform: uppercase;
 }
-.mat-snack-bar-container {
-  z-index: 10000 !important;  /* Assurez-vous qu'il reste au-dessus de tout */
-  top: 0 !important;
-  left: 50% !important;
-  transform: translateX(-50%) !important;
-}
 
-
- .snackbar-error {
+.snackbar-error {
   background-color: #f44336;
   color: white;
   font-weight: bold;
@@ -36,7 +131,9 @@
   font-size: 1rem;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
   text-transform: uppercase;
-}form {
+}
+
+form {
   max-width: 800px;
   margin: 4rem auto;
   background-color: #ffffff;
@@ -44,11 +141,10 @@
   border-radius: 12px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   display: grid;
-  grid-template-columns: 1fr 1fr; /* Deux colonnes égales */
+  grid-template-columns: 1fr 1fr;
   gap: 1rem;
 }
 
-/* Titre du formulaire */
 form h3 {
   color: #2b2d42;
   font-size: 1.8rem;
@@ -59,12 +155,10 @@ form h3 {
   gap: 1rem;
 }
 
-/* Groupes de formulaire */
 .form-group {
   margin-bottom: 1.2rem;
 }
 
-/* Label */
 label {
   font-weight: 600;
   font-size: 1rem;
@@ -73,19 +167,17 @@ label {
   display: block;
 }
 
-/* Conteneur des champs d'entrée */
 .input-container {
   position: relative;
 }
 
-/* Champs de saisie */
 input[type="text"],
 input[type="email"],
 input[type="tel"],
 input[type="date"],
 input[type="number"] {
   width: 100%;
-  padding: 1rem 1.5rem 1rem 2.5rem; /* Ajout de padding à gauche pour l'icône */
+  padding: 1rem 1.5rem 1rem 2.5rem;
   font-size: 1rem;
   border-radius: 8px;
   border: 1px solid #e2e8f0;
@@ -94,7 +186,6 @@ input[type="number"] {
   background-color: #f9fafb;
 }
 
-/* Icônes */
 .icon {
   position: absolute;
   left: 10px;
@@ -104,7 +195,6 @@ input[type="number"] {
   color: #5D93E1;
 }
 
-/* Focus des champs de saisie */
 input[type="text"]:focus,
 input[type="email"]:focus,
 input[type="tel"]:focus,
@@ -116,19 +206,16 @@ input[type="number"]:focus {
   background-color: #fff;
 }
 
-/* Conteneur des boutons */
 .button-container {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  margin-top: 2rem;   
-  grid-column: span 2; 
+  margin-top: 2rem;
+  grid-column: span 2;
   transition: all 0.3s ease;
-   
 }
 
-/* Style générique pour les boutons */
 .reservation-btn {
   background-color: #5D93E1;
   color: white;
@@ -140,7 +227,7 @@ input[type="number"]:focus {
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
   box-shadow: 0 4px 12px rgba(242, 240, 240, 0.4);
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
-  width: 80%; /* Le bouton occupe 80% de la largeur */
+  width: 80%;
   text-align: center;
   border: none;
   cursor: pointer;
@@ -148,28 +235,24 @@ input[type="number"]:focus {
   display: flex;
   align-items: center;
   justify-content: center;
-  display: flex;
 }
 
 .reservation-btn .material-icons {
-  margin-left: 10px; /* Espacement entre l'icône et le texte */
-  font-size: 1.3rem; /* Taille de l'icône */
+  margin-left: 10px;
+  font-size: 1.3rem;
 }
 
-/* Effet au survol (hover) */
 .reservation-btn:hover {
   background-color: #3164aa;
   transform: translateY(-3px) scale(1.03);
   box-shadow: 0 8px 20px rgba(255, 255, 255, 0.6);
 }
 
-/* Effet lorsqu'un bouton est activé (click) */
 .reservation-btn:active {
   transform: translateY(1px) scale(0.98);
   box-shadow: 0 2px 6px rgba(255, 107, 53, 0.5);
 }
 
-/* Désactivation du bouton */
 .reservation-btn:disabled {
   background-color: #B0BEC5;
   cursor: not-allowed;
@@ -177,9 +260,6 @@ input[type="number"]:focus {
   box-shadow: none;
 }
 
-
- 
-/* Pour les écrans mobiles */
 @media (max-width: 768px) {
   form {
     padding: 1.2rem;
@@ -198,6 +278,6 @@ input[type="number"]:focus {
   }
 
   .reservation-btn {
-    width: 100%; /* Le bouton prend 100% de la largeur sur mobile */
+    width: 100%;
   }
 }

@@ -1,0 +1,45 @@
+<div class="login-container">
+    <div class="login-card">
+      <div class="login-content">
+        <div class="login-header">
+          <h2>Créer un compte</h2>
+          <p>Inscrivez-vous pour accéder à votre espace</p>
+        </div>
+  
+        <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <label for="name">Nom complet</label>
+            <input id="name" formControlName="name" type="text" placeholder="Jean Dupont" />
+            <small *ngIf="signupForm.get('name')?.touched && signupForm.get('name')?.hasError('required')">Nom requis.</small>
+          </div>
+  
+          <div class="form-group">
+            <label for="email">Adresse email</label>
+            <input id="email" formControlName="email" type="email" placeholder="exemple@domaine.com" />
+            <small *ngIf="signupForm.get('email')?.touched && signupForm.get('email')?.hasError('required')">L'email est requis.</small>
+            <small *ngIf="signupForm.get('email')?.touched && signupForm.get('email')?.hasError('email')">Format invalide.</small>
+          </div>
+  
+          <div class="form-group">
+            <label for="password">Mot de passe</label>
+            <input id="password" formControlName="password" type="password" placeholder="Créez un mot de passe" />
+            <small *ngIf="signupForm.get('password')?.touched && signupForm.get('password')?.hasError('required')">Mot de passe requis.</small>
+            <small *ngIf="signupForm.get('password')?.touched && signupForm.get('password')?.hasError('minlength')">Minimum 6 caractères.</small>
+          </div>
+  
+          <button type="submit" class="btn-login" [disabled]="signupForm.invalid">Créer un compte</button>
+  
+          <div *ngIf="errorMessage" class="error-message">
+            {{ errorMessage }}
+          </div>
+        </form>
+  
+        <div class="signup-link">
+          <p>Déjà inscrit ? <a href="/login">Se connecter</a></p>
+        </div>
+      </div>
+  
+      <div class="login-illustration"></div>
+    </div>
+  </div>
+  

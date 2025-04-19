@@ -20,7 +20,8 @@
     align-items: center;
     gap: 1rem;
     position: relative;
-    padding-bottom: 0.8rem;
+    /* padding-bottom: 0.8rem; */
+    margin-bottom: -40px;
 }
 
 .offres-title mat-icon {
@@ -134,7 +135,7 @@
 .event-details {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 1.5rem;
+    gap: 1rem;
     margin: 1rem 0;
     padding: 1rem 0;
     border-top: 1px dashed rgba(0, 0, 0, 0.1);
@@ -289,8 +290,7 @@
     transform: rotate(45deg);
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
-
-/* Responsive */
+ 
 @media (max-width: 900px) {
     .event-card {
         flex-direction: column;
@@ -310,9 +310,7 @@
         margin-left: 0;
         width: 100%;
     }
-}
-
-/**snackbar */  
+} 
 
 .snackbar-success {
     background-color: #4CAF50;
@@ -326,7 +324,7 @@
     text-transform: uppercase;
   }
   .mat-snack-bar-container {
-    z-index: 10000 !important;  /* Assurez-vous qu'il reste au-dessus de tout */
+    z-index: 10000 !important;  
     top: 0 !important;
     left: 50% !important;
     transform: translateX(-50%) !important;
@@ -361,13 +359,14 @@
     color: #5D93E1;
     font-weight: 500;
     font-size: 1rem;
-    padding: 0.6rem 1.4rem;
+    /* padding: 0.6rem 1.4rem; */
     border-radius: 30px;
     display: flex;
     align-items: center;
     gap: 0.5rem;
     background: transparent;
     transition: all 0.3s ease;
+    
     box-shadow: none;
 }
 

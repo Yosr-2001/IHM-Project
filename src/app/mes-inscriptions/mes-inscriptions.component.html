@@ -1,54 +1,45 @@
 <div class="inscriptions-container">
-    <h1 class="myevents-title">
+  <div class="header">
+    <h1 class="title">
+      <mat-icon class="header-icon">how_to_reg</mat-icon>
       Mes Inscriptions
     </h1>
-  
-    <div class="cancel-button">
-      <button mat-stroked-button color="primary" [routerLink]="['/evenements']">
-        <mat-icon>arrow_back</mat-icon>
-        Retour aux événements
-      </button>
-    </div>
-  
-    <div *ngIf="inscriptions.length === 0">
-      <p>Vous n'êtes inscrit à aucun événement.</p>
-    </div>
-  
-    <div *ngIf="inscriptions.length > 0">
-      <ul class="inscriptions-list">
-        <li *ngFor="let inscription of inscriptions">
-          <div class="event-details">
-           
-  
-            <div class="event-info">
-              <p><strong>{{ inscription.evenement?.nom }}</strong></p>
-              <p class="event-description">
-                {{ inscription.evenement?.description || 'Aucune description disponible' }}
-              </p>
-              <p class="event-location">
-                <mat-icon>location_on</mat-icon>
-                <span>{{ inscription.evenement?.hotel?.nom || 'Lieu non spécifié' }}, 
-                  {{ inscription.evenement?.hotel?.ville || 'Ville non spécifiée' }}</span>
-              </p>
-  
-              <p class="event-schedule">
-                <mat-icon>calendar_today</mat-icon>
-                <span>{{ inscription.evenement?.date | date:'fullDate' }} à {{ inscription.evenement?.heure || 'Non spécifiée' }}</span>
-              </p>
-  
-              <p *ngIf="inscription.evenement?.prix" class="event-price">
-                <mat-icon>attach_money</mat-icon>
-                <span>{{ inscription.evenement?.prix }}€</span>
-              </p>
-  
-              <p *ngIf="!inscription.evenement?.prix" class="event-price">
-                <span>Prix non spécifié</span>
-              </p>
-            </div>
+    <button mat-button color="primary" [routerLink]="['/evenements']" class="back-button">
+      <mat-icon>arrow_back</mat-icon> Retour aux événements
+    </button>
+  </div>
+
+  <div *ngIf="inscriptions.length === 0" class="empty-message">
+    <mat-icon>event_busy</mat-icon>
+    <p>Vous n'êtes inscrit à aucun événement.</p>
+  </div>
+
+  <div *ngIf="inscriptions.length > 0" class="inscriptions-list">
+    <div *ngFor="let inscription of inscriptions" class="event-card">
+      <div class="event-image">
+        <img [src]="inscription.evenement?.imageUrl || 'assets/default-event.jpg'" alt="{{ inscription.evenement?.nom }}">
+      </div>
+
+      <div class="event-content">
+        <div class="event-header">
+          <h3 class="event-title">{{ inscription.evenement?.nom }}</h3>
+          <span class="price" *ngIf="inscription.evenement?.prix">{{ inscription.evenement?.prix }}€</span>
+        </div>
+
+        <p class="event-description">{{ inscription.evenement?.description || 'Aucune description disponible' }}</p>
+
+        <div class="event-details">
+          <div class="detail">
+            <mat-icon>calendar_today</mat-icon>
+            <span>{{ inscription.evenement?.date | date: 'fullDate' }} à {{ inscription.evenement?.heure || 'Non spécifiée' }}</span>
           </div>
-        </li>
-      </ul>
+
+          <div class="detail">
+            <mat-icon>location_on</mat-icon>
+            <span>{{ inscription.evenement?.hotel?.nom || 'Lieu non spécifié' }}, {{ inscription.evenement?.hotel?.ville || 'Ville non spécifiée' }}</span>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-   
-  
+</div>

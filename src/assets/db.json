@@ -1,28 +1,28 @@
 {
   "inscriptions": [
     {
-      "id": "12",
-      "idClient": "123",
+      "id": "",
+      "idClient": "2",
+      "idEvenement": "2",
+      "dateInscription": "2025-04-19T09:52:59.631Z"
+    },
+    {
+      "id": "",
+      "idClient": "2",
+      "idEvenement": "2",
+      "dateInscription": "2025-04-19T09:59:33.692Z"
+    },
+    {
+      "id": "",
+      "idClient": "1",
       "idEvenement": "3",
-      "dateInscription": "2025-04-16T23:10:08.881Z"
-    },
-    {
-      "id": "12",
-      "idClient": "123",
-      "idEvenement": "6",
-      "dateInscription": "2025-04-16T23:23:42.833Z"
+      "dateInscription": "2025-04-19T15:10:24.773Z"
     },
     {
       "id": "12",
       "idClient": "123",
       "idEvenement": "2",
-      "dateInscription": "2025-04-18T12:13:46.440Z"
-    },
-    {
-      "id": "12",
-      "idClient": "123",
-      "idEvenement": "2",
-      "dateInscription": "2025-04-18T12:14:28.404Z"
+      "dateInscription": "2025-04-19T15:30:53.308Z"
     }
   ],
   "composantsHotel": [
@@ -379,79 +379,92 @@
   ],
   "reservations": [
     {
-      "id": "3cad",
-      "offreId": "",
+      "id": "fe31",
+      "offreId": "3",
       "client": {
-        "nom": "said",
-        "email": "sa@gmail.com",
-        "telephone": "zz"
-      },
-      "details": {
-        "dateArrivee": "2025-04-18",
-        "dateDepart": "2025-04-23",
-        "nombrePersonnes": 1
-      },
-      "statut": "en_attente"
-    },
-    {
-      "id": "835a",
-      "offreId": "",
-      "client": {
-        "nom": "said",
-        "email": "sa@gmail.com",
-        "telephone": "123456"
-      },
-      "details": {
-        "dateArrivee": "2025-04-10",
-        "dateDepart": "2025-04-17",
-        "nombrePersonnes": 1
-      },
-      "statut": "en_attente"
-    },
-    {
-      "id": "6e2b",
-      "offreId": "",
-      "client": {
-        "nom": "s",
-        "email": "s",
-        "telephone": "1"
-      },
-      "details": {
-        "dateArrivee": "2025-04-10",
-        "dateDepart": "2025-04-12",
-        "nombrePersonnes": 1
-      },
-      "statut": "en_attente"
-    },
-    {
-      "id": "4acd",
-      "offreId": "",
-      "client": {
-        "nom": "ben amar yosr",
-        "email": "benamar.yosr@iit.ens.tn",
+        "id": "",
+        "nom": "Ahmed",
+        "email": "Ahmed@gmail.com",
         "telephone": "96323959"
       },
       "details": {
-        "dateArrivee": "2025-04-10",
-        "dateDepart": "2025-04-18",
-        "nombrePersonnes": 4
+        "dateArrivee": "2025-04-19",
+        "dateDepart": "2025-05-02",
+        "nombrePersonnes": 2
       },
-      "statut": "en_attente"
+      "statut": "annulee",
+      "creePar": {
+        "id": "2",
+        "nom": "Ahmed",
+        "email": "Ahmed@gmail.com"
+      },
+      "dateCreation": "2025-04-19T10:39:56.442Z"
     },
     {
-      "id": "aaa7",
-      "offreId": "",
+      "id": "f65b",
+      "offreId": "8",
       "client": {
-        "nom": "aaaa",
-        "email": "aa@gmail.com",
-        "telephone": "122"
+        "id": "",
+        "nom": "Ahmed",
+        "email": "Ahmed@gmail.com",
+        "telephone": "12345678"
       },
       "details": {
-        "dateArrivee": "2025-04-17",
-        "dateDepart": "2025-04-17",
+        "dateArrivee": "2025-04-11",
+        "dateDepart": "2025-05-02",
+        "nombrePersonnes": 2
+      },
+      "statut": "en_attente",
+      "creePar": {
+        "id": "2",
+        "nom": "Ahmed",
+        "email": "Ahmed@gmail.com"
+      },
+      "dateCreation": "2025-04-19T10:42:01.146Z"
+    },
+    {
+      "id": "d8bd",
+      "offreId": "6",
+      "client": {
+        "id": "",
+        "nom": "Ali",
+        "email": "Ali@gmail.com",
+        "telephone": "96323959"
+      },
+      "details": {
+        "dateArrivee": "2025-04-19",
+        "dateDepart": "2025-04-25",
+        "nombrePersonnes": 2
+      },
+      "statut": "en_attente",
+      "creePar": {
+        "id": "1",
+        "nom": "Ali",
+        "email": "Ali@gmail.com"
+      },
+      "dateCreation": "2025-04-19T15:10:56.169Z"
+    },
+    {
+      "id": "569d",
+      "offreId": "1",
+      "client": {
+        "id": "",
+        "nom": "Ali",
+        "email": "Ali@gmail.com",
+        "telephone": "96323959"
+      },
+      "details": {
+        "dateArrivee": "2025-05-03",
+        "dateDepart": "2025-05-10",
         "nombrePersonnes": 1
       },
-      "statut": "en_attente"
+      "statut": "annulee",
+      "creePar": {
+        "id": "1",
+        "nom": "Ali",
+        "email": "Ali@gmail.com"
+      },
+      "dateCreation": "2025-04-19T15:11:29.773Z"
     }
   ],
   "users": [

@@ -39,7 +39,7 @@
             </div>
 
             <div class="offre-actions">
-                <button mat-raised-button class="reservation-btn" [routerLink]="['/reservation', offre.id]">
+                <button mat-raised-button class="reservation-btn" (click)="reserverOffre(offre)">
                     Réserver maintenant <mat-icon>done</mat-icon>
                 </button>
             </div>

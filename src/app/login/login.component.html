@@ -1,43 +1,44 @@
 <div class="login-container">
-  <div class="login-left">
-    <h2> Connexion 👋</h2>
-    <!-- <p>How do I get started?</p> -->
-    <button class="btn btn-google">Continuer avec Google</button>
-    <button class="btn btn-apple">Continuer avec Apple</button>
-    <!-- <p>or Login with Email</p> -->
-
-    <!-- Formulaire de connexion -->
-    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-      <label for="email">Email</label>
-      <input id="email" formControlName="email" type="email" placeholder="Entrez votre email" />
-      <div *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched">
-        <small *ngIf="loginForm.get('email')?.hasError('required')">L'email est requis.</small>
-        <small *ngIf="loginForm.get('email')?.hasError('email')">L'email n'est pas valide.</small>
+  <div class="login-card">
+    <div class="login-content">
+      <div class="login-header">
+        <h2>Bienvenue</h2>
+        <p>Connectez-vous à votre espace personnel</p>
       </div>
 
-      <label for="password">Mot de passe</label>
-      <input id="password" formControlName="password" type="password" placeholder="Entrez votre mot de passe" />
-      <div *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
-        <small *ngIf="loginForm.get('password')?.hasError('required')">Le mot de passe est requis.</small>
-        <small *ngIf="loginForm.get('password')?.hasError('minlength')">Le mot de passe doit comporter au moins 6 caractères.</small>
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="email">Adresse email</label>
+          <input id="email" formControlName="email" type="email" placeholder="exemple@domaine.com" />
+          <small *ngIf="loginForm.get('email')?.touched && loginForm.get('email')?.hasError('required')">L'email est requis.</small>
+          <small *ngIf="loginForm.get('email')?.touched && loginForm.get('email')?.hasError('email')">Format invalide.</small>
+        </div>
+
+        <div class="form-group">
+          <label for="password">Mot de passe</label>
+          <input id="password" formControlName="password" type="password" placeholder="Votre mot de passe" />
+          <small *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.hasError('required')">Mot de passe requis.</small>
+          <small *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.hasError('minlength')">Minimum 6 caractères.</small>
+        </div>
+
+        <button type="submit" class="btn-login" [disabled]="loginForm.invalid">Connexion</button>
+
+        <div *ngIf="errorMessage" class="error-message">
+          {{ errorMessage }}
+        </div>
+      </form>
+
+      <div class="signup-link">
+        <p>Nouveau utilisateur ? <a href="/signup">Créer un compte</a></p>
       </div>
-
-      <button type="submit" class="btn btn-signin">Connexion</button>
-    </form>
-
-    <!-- Message d'erreur global -->
-    <div *ngIf="errorMessage" class="error-message">
-      {{ errorMessage }}
     </div>
 
-    <p>Vous n'avez pas de compte ? <a href="">S'inscrire</a></p>
-  </div>
-
-  <div class="login-right">
-    <div class="login-info">
-      
-
-      <img src="assets/rec.avif" alt="Dashboard example">
-    </div>
+    <div class="login-illustration">
+      <div class="login-illustration">
+        <div class="login-illustration">
+          <img   src="assets/images/LoginImage.png" 
+               alt="Sécurité digitale abstraite"
+               loading="lazy" />
+        </div></div>
   </div>
 </div>

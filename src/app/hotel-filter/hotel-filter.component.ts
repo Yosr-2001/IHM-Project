@@ -11,6 +11,7 @@ export class HotelFilterComponent implements OnInit {
   @Output() filtersChanged = new EventEmitter<any>();
 
   filters = {
+    prixMax:null,
     prixMin: null,
     etoiles: null,
     piscine: true
@@ -30,7 +31,7 @@ export class HotelFilterComponent implements OnInit {
   }
 
   resetFilters(): void {
-    this.filters = { prixMin: null, etoiles: null, piscine: true };
+    this.filters = { prixMax:null,prixMin: null, etoiles: null, piscine: true };
     localStorage.removeItem('hotelFilters');
     this.filtersChanged.emit(this.filters);
   }

@@ -25,23 +25,32 @@ export class MesInscriptionsComponent implements OnInit {
   }
 
   loadInscriptions(): void {
-    this.IS.getInscriptionsParClient('123').subscribe({
+    const currentUserStr = localStorage.getItem('currentUser');
+    
+    if (!currentUserStr) {
+      console.error('Utilisateur non connecté');
+      return;
+    }
+  
+    const currentUser = JSON.parse(currentUserStr);
+    const clientId = currentUser.id;
+  
+    this.IS.getInscriptionsParClient(clientId).subscribe({
       next: (inscriptions) => {
         this.inscriptions = inscriptions.map(inscription => {
-          // Conversion de la dateInscription en objet Date
           inscription.dateInscription = new Date(inscription.dateInscription);
           return inscription;
         });
   
         if (this.inscriptions.length > 0) {
-          const evenementRequests = this.inscriptions.map((inscription) => {
-            return this.ES.getEvenementById(inscription.idEvenement);  // Créer un tableau de requêtes pour les événements
-          });
+          const evenementRequests = this.inscriptions.map((inscription) =>
+            this.ES.getEvenementById(inscription.idEvenement)
+          );
   
           forkJoin(evenementRequests).subscribe({
             next: (evenements: Evenement[]) => {
               this.inscriptions.forEach((inscription, index) => {
-                inscription.evenement = evenements[index];  // Associer chaque événement à l'inscription correspondante
+                inscription.evenement = evenements[index];
               });
               console.log('Inscriptions avec événements:', this.inscriptions);
             },

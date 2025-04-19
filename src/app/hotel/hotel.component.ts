@@ -25,10 +25,7 @@ export class HotelComponent implements OnInit {
  
     if (id) {
       this.loadHotelDetails(id!);
-      // this.hotelService.getHotelById(+id).subscribe(data => {
-      //   this.hotel = data;
-    
-      // });
+     
       if (id) {
         this.loadHotelDetails(id);
       }

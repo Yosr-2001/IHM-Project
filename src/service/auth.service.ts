@@ -22,18 +22,18 @@ export class AuthService {
 
   login(email: string, password: string): Observable<{ user: any }> {
     return this.http.get<any[]>(`http://localhost:3000/users?username=${email}&password=${password}`)
-    .pipe(
-      map(users => {
-        if (users.length === 0) {
-          throw new Error('Identifiants invalides');
-        }
-        const user = users[0];
-        this._currentUser.next(user);
-        localStorage.setItem('currentUser', JSON.stringify(user)); 
-        return { user };
-      })
-    );
-  
+      .pipe(
+        map(users => {
+          if (users.length === 0) {
+            throw new Error('Identifiants invalides');
+          }
+          const user = users[0];
+          this._currentUser.next(user);
+          localStorage.setItem('currentUser', JSON.stringify(user));
+          return { user };
+        })
+      );
+
   }
 
   revokeToken(): Observable<any> {
@@ -44,21 +44,14 @@ export class AuthService {
     );
   }
 
-  // logout(): Observable<any> {
-  //   return this.http.post<any>('/api/logout', {}, { withCredentials: true }).pipe(
-  //     tap(() => {
-  //       this._currentUser.next(null);
-  //       localStorage.removeItem('currentUser'); // Supprimer l'utilisateur du localStorage
-  //       console.log('User logged out');
-  //     })
-  //   );
-  // }
 
   logout(): void {
-    this._currentUser.next(null); // Réinitialiser l'utilisateur
-    localStorage.removeItem('currentUser'); // Supprimer l'utilisateur du localStorage
+    this._currentUser.next(null);
+    localStorage.removeItem('hotelFilters');
+
+    localStorage.removeItem('currentUser');
   }
-  
+
 
   isConnected(): boolean {
     return this._currentUser.getValue() !== null;
@@ -72,14 +65,13 @@ export class AuthService {
   }
 
   getUserById(id: number): Observable<any> {
-    // Ajout d'un "/" manquant dans l'URL
     return this.http.get<any>(`http://localhost:3000/users/${id}`);
   }
-  
+
   modifyUser(user: any, id: string): Observable<any> {
-    return this.getUserById(+id).pipe( // Assure-toi que `id` est un nombre
+    return this.getUserById(+id).pipe(
       map(existingUser => {
-        // Si aucun mot de passe n'est fourni, on garde l'ancien
+
         if (!user.password) {
           user.password = existingUser.password;
         }
@@ -98,6 +90,6 @@ export class AuthService {
       )
     );
   }
-  
-   
+
+
 }

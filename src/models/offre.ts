@@ -1,12 +1,14 @@
+import { Hotel } from "./hotel";
+
 export interface Offre {
     id: string;
     nom: string;
     description: string;
     date_debut: string;
     date_fin: string;
-    reduction: number; 
-    // chambres_incluses?: number;
+    reduction: number;  
     hotelId: string;
+    hotel: Hotel;
     prixParNuit: number;
   }
   
@@ -14,7 +16,9 @@ export interface Offre {
 export interface Reservation {
   id?: number;
   offreId: string;
+  offre?: Offre; 
   client: {
+    id:string,
     nom: string;
     email: string;
     telephone: string;
@@ -27,4 +31,9 @@ export interface Reservation {
   };
   statut: 'en_attente' | 'confirmee' | 'annulee';  
   dateCreation?: string;  
+  creePar?: {
+    id: string;
+    nom: string;
+    email: string;
+  };
 }

@@ -7,8 +7,7 @@ import { filter } from 'rxjs/operators';
   templateUrl: './breadcrumb.component.html',
   styleUrls: ['./breadcrumb.component.css']
 })
-export class BreadcrumbComponent implements OnInit {
-  // breadcrumbs: Array<{ label: string, url: string }> = [];
+export class BreadcrumbComponent implements OnInit { 
   isHomePage: boolean = false;
   breadcrumbs: any[] = [];
   constructor(private router: Router, private activatedRoute: ActivatedRoute) { }

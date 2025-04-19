@@ -1,175 +1,3 @@
-/* .hotel-search-container {
-    max-width: 1200px;
-    margin: 2rem auto;
-    padding: 0 1rem;
-  }
-  
-  .search-card {
-    background: white;
-    border-radius: 12px;
-    padding: 0.5rem;
-    margin-bottom: 2rem;
-    margin-top:1rem;
-    height: 70px; 
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-    border: 1px solid rgba(0,0,0,0.03);
-  }
-  
-  .full-width {
-    width: 100%;
-  }
-  
-  .hotels-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1rem;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-   
-
-  .hotel-card {
-    background: rgb(255, 255, 255);
-    border-radius: 12px;
-    padding: 1rem;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-    transition: transform 0.5s, box-shadow 0.5s;
-    border: 1px solid rgba(0,0,0,0.03);
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .hotel-card:hover {
-    transform: translateY(-7px);
-    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-  }
-  
-  .hotel-header {
-    display: flex;
-    align-items: center;
-    margin-bottom: 1rem;
-  }
-  
-  .hotel-icon {
-    margin-right: 1.5rem;
-    color: #5D93E1;
-  }
-  
-  .hotel-icon mat-icon {
-    font-size: 2rem;
-    width: 2rem;
-    height: 2rem;
-  }
-  
-  .hotel-title {
-    font-size: 1.3rem;
-    color: #2d3436;
-    margin: 0;
-  }
-  
-  .location {
-    display: flex;
-    align-items: center;
-    margin-bottom: 1rem;
-    color: #636e72;
-  }
-  
-  .location mat-icon {
-    font-size: 1.2rem;
-    margin-right: 0.5rem;
-    color: #5D93E1;
-  }
-  
-  .hotel-description {
-    color: #636e72;
-    line-height: 1.6;
-    margin-bottom: 1.5rem;
-    flex-grow: 1;
-  }
-  
-  .hotel-stats {
-    display: flex;
-    gap: 1rem;
-    margin-bottom: 1.5rem;
-    flex-wrap: wrap;
-  }
-  
-  .stat-badge {
-    display: inline-flex;
-    align-items: center;
-    background: #f5f7fa;
-    padding: 0.5rem  ;
-    border-radius: 20px;
-    font-size: 0.9rem;
-    color: #2d3436;
-    font-weight: 500;
-  }
-  
-  .stat-badge mat-icon {
-    font-size: 1.2rem;
-    margin-right: 0.3rem;
-    color: #5D93E1;
-  }
-  
-  
- 
-  .hotel-cta {
-    margin-top: auto; 
-  }
-  
-  .details-button {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 500;
-  }
-  
-  .details-button mat-icon {
-    margin-left: 0.5rem;
-    font-size: 1.2rem;
-  }
-  
-  .no-results {
-    text-align: center;
-    padding: 3rem 0;
-    color: #666;
-    background: white;
-    border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-    border: 1px solid rgba(0,0,0,0.03);
-  }
-  
-  .no-results mat-icon {
-    font-size: 3rem;
-    height: 3rem;
-    width: 3rem;
-    margin-bottom: 1rem;
-    color: #bdbdbd;
-  }
-  .notfound-button{
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 500;
-  }
-  
-  .no-results h3 {
-    margin-bottom: 1.5rem;
-    font-weight: 500;
-  }.hotel-image {
-    height: 180px;
-    background-size: cover;
-    background-position: center;
-    border-radius: 8px;
-    margin-bottom: 1rem;
-    background-color: #f5f5f5;  
-    transition: opacity 0.3s ease;
-  } */
-
-  
-
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css');
 .hotel-search-container {
     max-width: 1200px;
@@ -181,7 +9,8 @@
     background: white;
     border-radius: 12px;
     padding: 0.5rem;
-    margin-bottom: 2rem;
+    /* margin-bottom: 2rem; */
+    margin-bottom: -30px;
     margin-top:1rem;
     height: 70px; 
     box-shadow: 0 10px 30px rgba(0,0,0,0.05);
@@ -340,10 +169,9 @@
     transition: opacity 0.3s ease;
   }
   .hotel-search-container {
-    position: relative; /* Assure que les éléments positionnés de manière absolue seront relatifs à ce conteneur */
+    position: relative;  
   }
-  
-  /* Toggle Filter Button */
+   
   .filter-toggle {
     margin-top: 20px;
   }
@@ -360,30 +188,24 @@
   
   .filter-toggle button:hover {
     background-color: #0056b3;
-  }
-  
-  /* Filters Container */
-
-  
-  /* Lorsque le filtre est activé */
+  } 
   .filters.show-filters {
-    display: block; /* Affiché lorsque le toggle est activé */
+    display: block; 
     transform: translateY(0);
     opacity: 1;
   }
-  
-  /* Animation pour l'affichage */
+   
   .filters {
-    transform: translateY(-20px); /* Initialement en dehors de la vue */
+    transform: translateY(-20px); 
     opacity: 0;
     margin-left: 100px;
     margin-top: 50px;
   }
   .hotels-grid {
-    transition: transform 0.3s ease; /* Animation fluide */
+    transition: transform 0.3s ease;  
   }
   .hotels-grid {
-    margin-top: 10px; /* Assure que le contenu ne se cache pas sous le filtre */
+    margin-top: 10px; 
   }
   .filter-btn {
     display: inline-flex;

@@ -34,8 +34,7 @@ export class NavbarComponent {
   constructor(private router: Router, private authService: AuthService) {}
 
   @HostListener('window:resize')
-  onResize() {
-    // Gestion responsive manuelle
+  onResize() { 
   }
 
   isActive(path: string): boolean {
@@ -54,10 +53,10 @@ ngOnInit(): void {
 logout(): void {
 
   localStorage.removeItem('currentUser');
-  // Réinitialise le BehaviorSubject
-  this.isDropdownOpen = false; // Ferme le menu déroulant
-  this.authService.logout(); // Appel de la méthode logout dans le service
-  this.router.navigate(['/login']); // Redirection vers la page de login
+ 
+  this.isDropdownOpen = false;  
+  this.authService.logout();  
+  this.router.navigate(['/login']);
 }
 
 

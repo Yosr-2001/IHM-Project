@@ -11,13 +11,7 @@ export interface Hotel {
     nbre_piscine: number;
     prix_moyen: number;
     composantsHotelId: (number | string)[];
-    // offres: {
-    //     nom: string;
-    //     description: string;
-    //     date_debut: string;
-    //     date_fin: string;
-    //     reduction: number;
-    // }[];
+ 
     avis: {
         note: number;
         commentaire: string;

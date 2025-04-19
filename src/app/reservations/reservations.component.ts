@@ -35,7 +35,7 @@ export class ReservationsComponent implements OnInit {
         }
         return {
           id: e.payload.doc.id,
-          isBeingEdited: false,//Unmapped field
+          isBeingEdited: false, 
           // @ts-ignore
           bookingClient: e.payload.doc.data()['bookingClient'],
           // @ts-ignore

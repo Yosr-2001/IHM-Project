@@ -28,8 +28,7 @@ export class CrudService {
   delete_client(idClt: any) {
     this.firesServices.doc('client/' + idClt).delete();
   }
-
-  //Hotel Booking:
+ 
   create_newBooking(bkng: any) {
     return this.firesServices.collection('booking').add(bkng);
   }
@@ -45,8 +44,7 @@ export class CrudService {
   delete_booking(idBkng: any) {
     this.firesServices.doc('booking/' + idBkng).delete();
   }
-
-//RoomTypes:
+ 
   get_allRoomTypes() {
     return this.firesServices.collection('roomType').snapshotChanges();
   }

@@ -1,21 +1,19 @@
-/* styles.css */
-/* Import Google Font */
+
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
-/* Variables CSS */
+ 
 :root {
-  --primary-color: #2A2D34;    /* Noir anthracite */
-  --secondary-color: #009B92;  /* Vert émeraude */
-  --accent-color: #FFD700;     /* Or (utilisation modérée) */
-  --light-bg: #F8F9FA;         /* Fond clair */
+  --primary-color: #2A2D34;   
+  --secondary-color: #009B92;  
+  --accent-color: #FFD700;     
+  --light-bg: #F8F9FA;          
   --text-dark: #2A2D34;
   --text-light: #FFFFFF;
   --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
   --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
 }
-
-/* Reset et Base */
+ 
 * {
   box-sizing: border-box;
   margin: 0;
@@ -32,9 +30,7 @@ body {
   background: linear-gradient(135deg, var(--light-bg) 0%, #f0f2f5 100%);
   color: var(--text-dark);
   min-height: 100vh;
-}
-
-/* Typographie */
+} 
 h1, h2, h3 {
   font-weight: 700;
   line-height: 1.2;
@@ -54,35 +50,7 @@ h2 {
 p {
   color: #4a5568;
   max-width: 65ch;
-}
-/*  
-.hero-section {
-  height: 90vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  
-  clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
-  position: relative;
-  overflow: hidden;
-}
-
-.hero-section::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(45deg, var(--secondary-color) 10%, transparent 90%);
-  mix-blend-mode: soft-light;
-  z-index: 1;
-}
-
-.hero-title {
-  font-size: 4rem;
-  color: var(--text-light);
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-  animation: slideIn 1s ease-out;
-} */
-
+} 
 @keyframes slideIn {
   from {
     opacity: 0;
@@ -93,8 +61,7 @@ p {
     transform: translateY(0);
   }
 }
-
-/* Cartes Fonctionnalités */
+ 
 .feature-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -127,9 +94,7 @@ p {
   margin: 0 auto 1.5rem;
   color: white;
   font-size: 2rem;
-}
-
-/* Statistiques Animées */
+} 
 .stats-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -152,8 +117,7 @@ p {
   color: var(--accent-color);
   margin-bottom: 0.5rem;
 }
-
-/* Boutons & CTA */
+ 
 .cta-button {
   display: inline-flex;
   align-items: center;
@@ -186,9 +150,7 @@ p {
 .cta-button:hover {
   transform: translateY(-3px);
   box-shadow: var(--shadow-md);
-}
-
-/* Responsive Design */
+} 
 @media (max-width: 768px) {
   .hero-title {
     font-size: 2.5rem;
@@ -202,9 +164,7 @@ p {
   .stats-grid {
     grid-template-columns: 1fr;
   }
-}
-
-/* Animations Avancées */
+} 
 @keyframes shimmer {
   0% { background-position: -1000px 0; }
   100% { background-position: 1000px 0; }
@@ -215,8 +175,7 @@ p {
   background: linear-gradient(to right, #f6f7f8 8%, #edeef1 18%, #f6f7f8 33%);
   background-size: 1000px 100%;
 }
-
-/* Overrides Bootstrap */
+ 
 .mat-mdc-card {
   border-radius: 1rem !important;
   overflow: hidden;

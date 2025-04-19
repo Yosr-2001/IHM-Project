@@ -4,6 +4,7 @@ import { OffreService } from 'src/service/offre.service';
 import { MatDialog } from '@angular/material/dialog';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/service/auth.service';
  
 @Component({
   selector: 'app-offre',
@@ -16,8 +17,11 @@ export class OffreComponent implements OnInit {
   error = '';
   @Input() hotelId!: string;
 
-  constructor(private OS: OffreService,  private router: Router,
-    private dialog:MatDialog, private http: HttpClient
+  constructor(private OS: OffreService,  
+    private router: Router,
+    private dialog:MatDialog, 
+    private http: HttpClient,
+    private authService: AuthService
   ) { }
 
   ngOnInit(): void {
@@ -39,11 +43,19 @@ export class OffreComponent implements OnInit {
     });
   }
   
-  
   reserverOffre(offre: Offre): void {
-    this.router.navigate(['/reservation', offre.id]);
-    
+    const user = localStorage.getItem("currentUser");
+  
+    if (user) {
+     
+      this.router.navigate(['/reservation', offre.id]);
+    } else {
+     console.log("!!notconnected!!");
+      localStorage.setItem('redirectAfterLogin', `/reservation/${offre.id}`);
+      this.router.navigate(['/login']);
+    }
   }
+  
   selectedOffer: string | null = null;
 
   selectOffer(offerId: string): void {
@@ -52,7 +64,6 @@ export class OffreComponent implements OnInit {
 
     contactSupport(): void {
     console.log('Redirection vers le support');
-    // this.router.navigate(['/contact']);
   }
   callSupport(): void {
     window.open('tel:+21612345678');
@@ -60,18 +71,15 @@ export class OffreComponent implements OnInit {
   }
 
   openContactForm(): void {
-    // this.dialog.open(ContactFormDialog);
     this.logHelpRequest('email');
   }
 
   startLiveChat(): void {
-    // Intégration avec votre solution de chat
     console.log('Démarrage du chat en direct');
     this.logHelpRequest('chat');
   }
 
   private logHelpRequest(method: string): void {
-    // Envoyer ces données à votre système d'analyse
     console.log(`Demande d'aide via ${method} pour l'hôtel ${this.hotelId}`);
   }
 }

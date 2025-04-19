@@ -1,0 +1,83 @@
+<div class="events-container">
+  <div *ngIf="loading" class="empty-state">
+    <mat-icon>hourglass_empty</mat-icon>
+    Chargement de vos réservations...
+  </div>
+
+  <div *ngIf="!loading && !error && reservations.length > 0">
+
+    <h1 class="title">
+      <mat-icon class="header-icon">how_to_reg</mat-icon>
+      Mes Réservation
+    </h1>   
+     <div class="events-list">
+      <div class="event-card" *ngFor="let reservation of reservations">
+
+        <div class="event-image">
+          <img [src]="reservation.offre?.hotel?.image" alt="Image de l'hôtel" />
+        </div>
+
+        <div class="event-content">
+          <div class="event-header">
+            <h3 class="event-title">Réservation </h3>
+
+            <span [ngClass]="{
+                'status-badge': true,
+                'status-en-attente': reservation.statut === 'en_attente',
+                'status-confirmee': reservation.statut === 'confirmee',
+                'status-annulee': reservation.statut === 'annulee'
+              }">
+              <mat-icon>{{ reservation.statut === 'confirmee' ? 'check_circle' : reservation.statut === 'en_attente' ? 'hourglass_empty' : 'cancel' }}</mat-icon>
+              {{ reservation.statut | uppercase }}
+            </span>
+          </div>
+
+          <div class="detail-item">
+            <mat-icon>location_city</mat-icon>
+            <span>{{ reservation.offre?.hotel?.nom }}</span>
+
+            <mat-icon>place</mat-icon>
+            <span>{{ reservation.offre?.hotel?.adresse }}</span>
+          </div>
+
+          <p class="event-description">
+            <strong>{{ reservation.offre?.nom || 'Chargement...' }}</strong> —
+            {{ reservation.offre?.description || 'Chargement...' }}
+          </p>
+
+          <div class="event-details">
+            <div class="detail-item">
+              <mat-icon class="calendar-icon">calendar_today</mat-icon>
+              <span>Date d'arrivée: {{ reservation.details.dateArrivee | date }}</span>
+            </div>
+            <div class="detail-item">
+              <mat-icon class="calendar-icon">calendar_month</mat-icon>
+              <span>Date de départ: {{ reservation.details.dateDepart | date }}</span>
+            </div>
+            <div class="detail-item">
+              <mat-icon class="person-icon">person</mat-icon>
+              <span>Client: {{ reservation.client.nom }} ({{ reservation.client.email }})</span>
+            </div>
+            <div class="detail-item">
+              <mat-icon>people</mat-icon>
+              <span>Nombre de personnes: {{ reservation.details.nombrePersonnes }}</span>
+            </div>
+            <div class="detail-item">
+              <mat-icon>access_time</mat-icon>
+              <span>Date de réservation: {{ reservation.dateCreation | date:'short' }}</span>
+            </div>
+          </div>
+
+          <!-- Actions -->
+          <div class="event-actions">
+            <button class="reservation-btn cancel-btn" (click)="annulerReservation(reservation)" [disabled]="reservation.statut === 'annulee'">
+              <mat-icon>cancel</mat-icon>
+              Annuler réservation
+            </button>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
